@@ -1,4 +1,4 @@
-import { BentoGridThirdDemo, GridBackgroundDemo, HeroHighlightDemo, ImagesSliderDemo,  NavbarDemo, StickyBannerDemo, StickyScrollRevealDemo } from "./homesPage";
+import NavbarDemo, { BentoGridThirdDemo, GridBackgroundDemo, HeroHighlightDemo, ImagesSliderDemo,   StickyBannerDemo, StickyScrollRevealDemo } from "./homesPage";
 
 
 

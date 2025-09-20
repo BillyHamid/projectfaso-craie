@@ -1,4 +1,4 @@
-import { ColourfulTextDemo, FollowingPointerDemo, NavbarDemo, TracingBeamDemo } from "../homesPage";
+import NavbarDemo, { ColourfulTextDemo, FollowingPointerDemo,  TracingBeamDemo } from "../homesPage";
 
 
 const AboutPage = () => {

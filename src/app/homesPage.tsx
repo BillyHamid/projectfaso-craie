@@ -40,7 +40,7 @@ import { TracingBeam } from "../components/ui/tracing-beam";
 
 
 
-export function NavbarDemo() {
+export default function NavbarDemo() {
   const navItems = [
     {
       name: "Acceuil",
