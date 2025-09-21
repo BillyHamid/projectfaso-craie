@@ -1,5 +1,5 @@
-import NavbarDemo, { ColourfulTextDemo, FollowingPointerDemo,  TracingBeamDemo } from "../homesPage";
-
+'use client'
+import NavbarDemo, { ColourfulTextDemo, FollowingPointerDemo, TracingBeamDemo } from "../homesPage";
 
 const AboutPage = () => {
   return (
@@ -8,7 +8,6 @@ const AboutPage = () => {
       <ColourfulTextDemo />
       <FollowingPointerDemo />
       <TracingBeamDemo />
-
     </div>
   );
 };

@@ -1,9 +1,7 @@
-import NavbarDemo, { BentoGridThirdDemo, GridBackgroundDemo, HeroHighlightDemo, ImagesSliderDemo,   StickyBannerDemo, StickyScrollRevealDemo } from "./homesPage";
-
-
+'use client'
+import NavbarDemo, { BentoGridThirdDemo, GridBackgroundDemo, HeroHighlightDemo, ImagesSliderDemo, StickyBannerDemo, StickyScrollRevealDemo } from "./homesPage";
 
 const Page = () => {
-
   return (
     <div>
       <StickyBannerDemo />
@@ -12,10 +10,7 @@ const Page = () => {
       <HeroHighlightDemo />
       <BentoGridThirdDemo />
       <StickyScrollRevealDemo />
-
       <GridBackgroundDemo />
-
-
     </div>
   );
 };
