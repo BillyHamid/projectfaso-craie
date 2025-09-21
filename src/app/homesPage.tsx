@@ -52,7 +52,7 @@ export default function NavbarDemo() {
     },
     {
       name: "Contactez-nous",
-      link: "/contact",
+      link: "#contact",
     },
   ];
 
