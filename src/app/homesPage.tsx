@@ -116,11 +116,11 @@ export default function NavbarDemo() {
 export function ImagesSliderDemo() {
   const images = [
     "/banier.jpg",
-    "https://images.unsplash.com/photo-1483982258113-b72862e6cff6?q=80&w=3456&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "https://images.unsplash.com/photo-1482189349482-3defd547e0e9?q=80&w=2848&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "/banner5.jpg",
+    "/banner4.jpg",
   ];
   return (
-    <ImagesSlider className="h-[40rem]" images={images}>
+    <ImagesSlider className="h-[20rem] md:h-[35rem] lg:h-[50rem]" images={images}>
       <motion.div
         initial={{
           opacity: 0,
@@ -133,15 +133,9 @@ export function ImagesSliderDemo() {
         transition={{
           duration: 0.6,
         }}
-        className="z-50 flex flex-col justify-center items-center"
       >
-        <motion.p className="font-bold text-xl md:text-6xl text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-4">
-          The hero section slideshow <br /> nobody asked for
-        </motion.p>
-        <button className="px-4 py-2 backdrop-blur-sm border bg-emerald-300/10 border-emerald-500/20 text-white mx-auto text-center rounded-full relative mt-4">
-          <span>Join now →</span>
-          <div className="absolute inset-x-0  h-px -bottom-px bg-gradient-to-r w-3/4 mx-auto from-transparent via-emerald-500 to-transparent" />
-        </button>
+        
+       
       </motion.div>
     </ImagesSlider>
   );
@@ -255,10 +249,10 @@ export function HeroHighlightDemo() {
         }}
         className="text-2xl px-4 md:text-4xl lg:text-5xl font-bold text-neutral-700 dark:text-white max-w-4xl leading-relaxed lg:leading-snug text-center mx-auto "
       >
-        With insomnia, nothing&apos;s real. Everything is far away. Everything
-        is a{" "}
+        Sans craie, rien n&apos;est écrit. Rien n&apos;est transmis. Chaque trait que l&apos;on trace 
+        {" "}
         <Highlight className="text-black dark:text-white">
-          copy, of a copy, of a copy.
+          marque le savoir en mouvement.
         </Highlight>
       </motion.h1>
     </HeroHighlight>
@@ -612,15 +606,14 @@ const content = [
   {
     title: "Faso Craie – Une fierté nationale",
     description:
-      "Work together in real time with your team, clients, and stakeholders. Collaborate on documents, share ideas, and make decisions quickly. With our platform, you can streamline your workflow and increase productivity.",
+      "Seule unité industrielle de production de craie au Burkina Faso ,avec une capacité installée de 1000 à 1120 cartons de 16 boites de craie par mois, elle emploie actuellement 3 administratifs et cinq(5) Ouvriers. FASO CRAIE a pour principaux clients: le MENAPLN, et les Etablissements privés Primaires, et  Secondaires  du Burkina Faso.",
     content: (
       <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] text-white">
        <Image
           src="/OIP.jpg"
           alt="linear board demo"
-          width={300}
-          height={300}
-          className="h-full w-full object-cover"
+          fill
+          className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg h-auto object-cover"
         />
       </div>
     ),
@@ -676,7 +669,7 @@ const content = [
 
 export function StickyScrollRevealDemo() {
   return (
-    <div className="w-full py-4">
+    <div className="w-full px-4 sm:px-6 md:px-8 py-4">
       <StickyScroll content={content} />
     </div>
   );
@@ -696,7 +689,7 @@ export function ColourfulTextDemo() {
         transition={{ duration: 1 }}
       />
       <h1 className="text-2xl md:text-5xl lg:text-7xl font-bold text-center text-white relative z-2 font-sans">
-        The best <ColourfulText text="components" /> <br /> you will ever find
+       <ColourfulText text="Faso Craie" />  write your future  <br /> 
       </h1>
     </div>
   );
@@ -837,7 +830,7 @@ const dummyContent = [
         </p>
       </>
     ),
-    badge: "React",
+    badge: "",
     image:
       "/2e28dbf9-c270-4c05-b101-929cbef11890 (1).jpg",
   },
@@ -861,12 +854,12 @@ const dummyContent = [
         </p>
       </>
     ),
-    badge: "Changelog",
+    badge: "",
     image:
-      "",
+      "/d9a2f9a6-bc25-48b8-b978-c4e3f7277f2c.jpg",
   },
   {
-    title: "Lorem Ipsum Dolor Sit Amet",
+    title: "",
     description: (
       <>
         <p>
@@ -881,6 +874,6 @@ const dummyContent = [
     ),
     badge: "Launch Week",
     image:
-      "",
+      "/preview.png",
   },
 ];
