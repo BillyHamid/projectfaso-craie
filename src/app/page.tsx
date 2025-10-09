@@ -3,7 +3,6 @@ import NavbarDemo, { BentoGridThirdDemo, ConsommonsBurkinabe, Footer, GridBackgr
 
 
 const Page = () => {
-
   return (
     <div>
       <StickyBannerDemo />
