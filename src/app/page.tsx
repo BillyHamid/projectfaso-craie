@@ -1,4 +1,4 @@
-import NavbarDemo, { BentoGridThirdDemo, ConsommonsBurkinabe, Footer, GridBackgroundDemo, HeroHighlightDemo, ImagesSliderDemo,   Marquee3D,   NosValeurs,   StickyBannerDemo, StickyScrollRevealDemo } from "./homesPage";
+import NavbarDemo, { BentoGridThirdDemo, Footer, HeroHighlightDemo, ImagesSliderDemo,  MarqueeDemo,  NosValeurs,  StickyBannerDemo, StickyScrollRevealDemo } from "./homesPage";
 
 
 
@@ -10,15 +10,10 @@ const Page = () => {
       <ImagesSliderDemo />
       <HeroHighlightDemo />
       <BentoGridThirdDemo />
-      <StickyScrollRevealDemo />
       <NosValeurs />
-      <ConsommonsBurkinabe />
-
-      <GridBackgroundDemo />
-      <Marquee3D />
+      <StickyScrollRevealDemo />
+      <MarqueeDemo />
       <Footer />
-
-
     </div>
   );
 };

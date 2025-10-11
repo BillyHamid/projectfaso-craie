@@ -10,14 +10,13 @@ import {
   MobileNavToggle,
   MobileNavMenu,
 } from "@/components/ui/resizable-navbar";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { motion } from "motion/react";
 import React from "react";
 import { ImagesSlider } from "../components/ui/images-slider";
 import { cn } from "@/lib/utils";
 import { StickyBanner } from "@/components/ui/sticky-banner";
 
-import { InfiniteMovingCards } from "../components/ui/infinite-moving-cards";
 import { HeroHighlight, Highlight } from "../components/ui/hero-highlight";
 import { BentoGrid, BentoGridItem } from "../components/ui/bento-grid";
 import {
@@ -35,26 +34,16 @@ import { FollowerPointerCard } from "../components/ui/following-pointer";
 
 import { TracingBeam } from "../components/ui/tracing-beam";
 
+
 import { TextGenerateEffect } from "../components/ui/text-generate-effect";
-import { TextReveal } from "../components/ui/text-reveal";
-import { PixelImage } from "../components/ui/pixel-image";
-import { easeOut, useInView } from "framer-motion";
-import { Marquee } from "../components/ui/marquee";
+import { easeOut } from "framer-motion";
 
 import { Heart, Lightbulb, GraduationCap } from 'lucide-react';
 
-import { ArrowRight, Sparkles } from 'lucide-react';
-
-
-import { Facebook, Linkedin, Instagram, MapPin, Phone, Mail, MessageCircle } from 'lucide-react';
-
-
 import { Factory, BookOpen, Globe2 } from 'lucide-react';
 
-
-
-
-
+import { Facebook, Linkedin, Instagram, MapPin, Phone, Mail, MessageCircle } from 'lucide-react';
+import { Marquee } from "../components/ui/marquee";
 
 
 export default function NavbarDemo() {
@@ -137,7 +126,7 @@ export function ImagesSliderDemo() {
     "/banner4.jpg",
   ];
   return (
-    <ImagesSlider className="h-[40rem]" images={images}>
+    <ImagesSlider className="h-[20rem] md:h-[35rem] lg:h-[50rem]" images={images}>
       <motion.div
         initial={{
           opacity: 0,
@@ -159,24 +148,7 @@ export function ImagesSliderDemo() {
 }
 
 
-export function GridBackgroundDemo() {
-  return (
-    <div className="relative flex h-[50rem] w-full items-center justify-center bg-white dark:bg-black">
-      <div
-        className={cn(
-          "absolute inset-0",
-          "[background-size:40px_40px]",
-          "[background-image:linear-gradient(to_right,#e4e4e7_1px,transparent_1px),linear-gradient(to_bottom,#e4e4e7_1px,transparent_1px)]",
-          "dark:[background-image:linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px)]",
-        )}
-      />
-      {/* Radial gradient for the container to give a faded look */}
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] dark:bg-black"></div>
-            <InfiniteMovingCardsDemo />
-     
-    </div>
-  );
-}
+
 
 
 
@@ -200,50 +172,6 @@ export function StickyBannerDemo() {
 
 
 
-
-export function InfiniteMovingCardsDemo() {
-  return (
-    <div className="h-[40rem] rounded-md flex flex-col antialiased bg-white dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
-      <InfiniteMovingCards
-        items={testimonials}
-        direction="right"
-        speed="slow"
-      />
-    </div>
-  );
-}
-
-const testimonials = [
-  {
-    quote:
-      "It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair.",
-    name: "Charles Dickens",
-    title: "A Tale of Two Cities",
-  },
-  {
-    quote:
-      "To be, or not to be, that is the question: Whether 'tis nobler in the mind to suffer The slings and arrows of outrageous fortune, Or to take Arms against a Sea of troubles, And by opposing end them: to die, to sleep.",
-    name: "William Shakespeare",
-    title: "Hamlet",
-  },
-  {
-    quote: "All that we see or seem is but a dream within a dream.",
-    name: "Edgar Allan Poe",
-    title: "A Dream Within a Dream",
-  },
-  {
-    quote:
-      "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.",
-    name: "Jane Austen",
-    title: "Pride and Prejudice",
-  },
-  {
-    quote:
-      "Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.",
-    name: "Herman Melville",
-    title: "Moby-Dick",
-  },
-];
 
 
 
@@ -783,13 +711,6 @@ const TitleComponent = ({
 );
 
 
-
-
-
-
-
-
-
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   visible: { 
@@ -801,16 +722,14 @@ const fadeUp = {
 
 const words1 = `L’histoire de FASO CRAIE, fondée en 2021, repose sur une volonté profonde de
 contribuer au développement du Burkina Faso en réduisant sa dépendance
-aux importations. Le constat de départ était clair : malgré les milliers d&apos;écoles
-dans le pays, il y avait une absence d&apos;unité industrielle locale capable de
-produire la craie nécessaire à l&apos;éducation.
+aux importations. Le constat de départ était clair : malgré les milliers d'écoles
+dans le pays, il y avait une absence d'unité industrielle locale capable de
+produire la craie nécessaire à l'éducation.
 
 Aujourd’hui, FASO CRAIE se dresse comme la première usine de production de
 craie scolaire 100% burkinabè et la seule unité industrielle de production de
 craie au Burkina Faso.
 
-Notre accroche principale résume notre engagement national : « Une craie
-100% burkinabè, pour écrire l&apos;avenir ».
 `;
 
 const words2 = `FASO CRAIE est plus qu'une entreprise : c'est une usine au service de
@@ -876,7 +795,38 @@ export function TracingBeamDemo() {
                     alt={item.title}
                     width={550}
                     height={400}
-                    <<<<<<< HEAD
+                    className="object-cover"
+                  />
+                </div>
+              </motion.div>
+            )}
+
+            {/* TEXTE */}
+            <motion.div
+              variants={fadeUp}
+              className="flex-1 space-y-5 text-left"
+            >
+              <span className="inline-block bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300 text-sm px-4 py-1 rounded-full">
+                {item.badge}
+              </span>
+
+              <h2 className="text-3xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                {item.title}
+              </h2>
+
+              <div className="text-base leading-relaxed text-gray-700 dark:text-gray-300">
+                {item.description}
+              </div>
+            </motion.div>
+          </motion.div>
+        ))}
+      </div>
+    </TracingBeam>
+  );
+}
+
+const dummyContent = [
+  {
     title: "Le Début de l'Écriture Burkinabè",
     description: <TextGenerateEffectDemo1 />,
     badge: "Historique et Contexte de Création",
@@ -886,284 +836,18 @@ export function TracingBeamDemo() {
     title: "Notre Engagement Industriel et Qualité",
     description: <TextGenerateEffectDemo2 />,
     badge: "Engagement et Qualité",
-    image: "/usine2.jpg",
+    image: "/DSC_1927.jpg",
   },
   {
     title: "Vision et Ambitions Panafricaines",
     description: <TextGenerateEffectDemo3 />,
     badge: "Vision à Long Terme",
-    image: "/usine3.jpg",
-=======
-    title: "Lorem Ipsum Dolor Sit Amet",
-    description: (
-      <>
-        <p>
-          Sit duis est minim proident non nisi velit non consectetur. Esse
-          adipisicing laboris consectetur enim ipsum reprehenderit eu deserunt
-          Lorem ut aliqua anim do. Duis cupidatat qui irure cupidatat incididunt
-          incididunt enim magna id est qui sunt fugiat. Laboris do duis pariatur
-          fugiat Lorem aute sit ullamco. Qui deserunt non reprehenderit dolore
-          nisi velit exercitation Lorem qui do enim culpa. Aliqua eiusmod in
-          occaecat reprehenderit laborum nostrud fugiat voluptate do Lorem culpa
-          officia sint labore. Tempor consectetur excepteur ut fugiat veniam
-          commodo et labore dolore commodo pariatur.
-        </p>
-        <p>
-          Dolor minim irure ut Lorem proident. Ipsum do pariatur est ad ad
-          veniam in commodo id reprehenderit adipisicing. Proident duis
-          exercitation ad quis ex cupidatat cupidatat occaecat adipisicing.
-        </p>
-        <p>
-          Tempor quis dolor veniam quis dolor. Sit reprehenderit eiusmod
-          reprehenderit deserunt amet laborum consequat adipisicing officia qui
-          irure id sint adipisicing. Adipisicing fugiat aliqua nulla nostrud.
-          Amet culpa officia aliquip deserunt veniam deserunt officia
-          adipisicing aliquip proident officia sunt.
-        </p>
-      </>
-    ),
-    badge: "",
-    image:
-      "/2e28dbf9-c270-4c05-b101-929cbef11890 (1).jpg",
-  },
-  {
-    title: "Lorem Ipsum Dolor Sit Amet",
-    description: (
-      <>
-        <p>
-          Ex irure dolore veniam ex velit non aute nisi labore ipsum occaecat
-          deserunt cupidatat aute. Enim cillum dolor et nulla sunt exercitation
-          non voluptate qui aliquip esse tempor. Ullamco ut sunt consectetur
-          sint qui qui do do qui do. Labore laborum culpa magna reprehenderit ea
-          velit id esse adipisicing deserunt amet dolore. Ipsum occaecat veniam
-          commodo proident aliqua id ad deserunt dolor aliquip duis veniam sunt.
-        </p>
-        <p>
-          In dolore veniam excepteur eu est et sunt velit. Ipsum sint esse
-          veniam fugiat esse qui sint ad sunt reprehenderit do qui proident
-          reprehenderit. Laborum exercitation aliqua reprehenderit ea sint
-          cillum ut mollit.
-        </p>
-      </>
-    ),
-    badge: "",
-    image:
-      "/d9a2f9a6-bc25-48b8-b978-c4e3f7277f2c.jpg",
-  },
-  {
-    title: "",
-    description: (
-      <>
-        <p>
-          Ex irure dolore veniam ex velit non aute nisi labore ipsum occaecat
-          deserunt cupidatat aute. Enim cillum dolor et nulla sunt exercitation
-          non voluptate qui aliquip esse tempor. Ullamco ut sunt consectetur
-          sint qui qui do do qui do. Labore laborum culpa magna reprehenderit ea
-          velit id esse adipisicing deserunt amet dolore. Ipsum occaecat veniam
-          commodo proident aliqua id ad deserunt dolor aliquip duis veniam sunt.
-        </p>
-      </>
-    ),
-    badge: "Launch Week",
-    image:
-      "/preview.png",
->>>>>>> 186b86946caedd9bbf5ebb9912b8ac7285798c08
-,
-    image: "/usine3.jpg",
-=======
-    title: "Lorem Ipsum Dolor Sit Amet",
-    description: (
-      <>
-        <p>
-          Sit duis est minim proident non nisi velit non consectetur. Esse
-          adipisicing laboris consectetur enim ipsum reprehenderit eu deserunt
-          Lorem ut aliqua anim do. Duis cupidatat qui irure cupidatat incididunt
-          incididunt enim magna id est    title: "Le Début de l'Écriture Burkinabè",
-    description: <TextGenerateEffectDemo1 />,
-    badge: "Historique et Contexte de Création",
-    image: "/DSC_1792.jpg",
-  },
-  {
-    title: "Notre Engagement Industriel et Qualité",
-    description: <TextGenerateEffectDemo2 />,
-    badge: "Engagement et Qualité",
-    image: "/usine2.jpg",
-  },
-  {
-    title: "Vision et Ambitions Panafricaines",
-    description: <TextGenerateEffectDemo3 />,
-    badge: "Vision à Long Terme",
-    image: "/usine3.jpg",
-"/usine3.jpg",
-"/usine3.jpg",
-"/usine3.jpg",
-"/usine3.jpg",
+    image: "/DSC_1278.jpg",
   },
 ];
 
 
-// text reaveal ........................
-
-
-export function TextRevealDemo() {
-  return <TextReveal>FASO CRAIE est plus qu&apos;une entreprise : c&apos;est une usine au service de
-l&apos;éducation et de l&apos;économie locale Structure et Investissement .Notre entité est enregistrée au Registre de commerce et du crédit Immobilier
-(RCCM : BF BBD 2021 A0802 ; IFU: 00158617V). Nous sommes stratégiquement
-localisés dans la zone industrielle, sur la route de Banfora, à 200m du Port Sec
-de Bobo-Dioulasso.
-</TextReveal>
-}
-
-
-
-
-
-
-export function Home() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: false, amount: 0.2 }); // 👈 se rejoue à chaque fois
-
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, scale: 0.9, y: 60 }}
-      animate={
-        isInView
-          ? { opacity: 1, scale: 1, y: 0 }
-          : { opacity: 0.4, scale: 0.9, y: 40 }
-      }
-      transition={{ duration: 0.8, ease: "easeOut" }}
-      className="flex justify-center items-center py-10 gap-x-6"
-    >
-      <PixelImage
-        src="/d9a2f9a6-bc25-48b8-b978-c4e3f7277f2c.jpg"
-        customGrid={{ rows: 4, cols: 6 }}
-        grayscaleAnimation
-      />
-      <PixelImage
-        src="/d9a2f9a6-bc25-48b8-b978-c4e3f7277f2c.jpg"
-        customGrid={{ rows: 4, cols: 6 }}
-        grayscaleAnimation
-      />
-      <PixelImage
-        src="/d9a2f9a6-bc25-48b8-b978-c4e3f7277f2c.jpg"
-        customGrid={{ rows: 4, cols: 6 }}
-        grayscaleAnimation
-      />
-    </motion.div>
-  );
-}
-
-
-// marqueee 
-
-/* eslint-disable @next/next/no-img-element */
-
-
-const reviews = [
-  {
-    name: "Jack",
-    username: "@jack",
-    body: "I've never seen anything like this before. It's amazing. I love it.",
-    img: "https://avatar.vercel.sh/jack",
-  },
-  {
-    name: "Jill",
-    username: "@jill",
-    body: "I don't know what to say. I'm speechless. This is amazing.",
-    img: "https://avatar.vercel.sh/jill",
-  },
-  {
-    name: "John",
-    username: "@john",
-    body: "I'm at a loss for words. This is amazing. I love it.",
-    img: "https://avatar.vercel.sh/john",
-  },
-]
-
-const firstRow = reviews.slice(0, reviews.length / 2)
-const secondRow = reviews.slice(reviews.length / 2)
-const thirdRow = reviews.slice(0, reviews.length / 2)
-const fourthRow = reviews.slice(reviews.length / 2)
-
-const ReviewCard = ({
-  img,
-  name,
-  username,
-  body,
-}: {
-  img: string
-  name: string
-  username: string
-  body: string
-}) => {
-  return (
-    <figure
-      className={cn(
-        "relative h-full w-fit cursor-pointer overflow-hidden rounded-xl border p-4 sm:w-36",
-        // light styles
-        "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
-        // dark styles
-        "dark:border-gray-50/[.1] dark:bg-gray-50/[0.10] dark:hover:bg-gray-50/[.15]"
-      )}
-    >
-      <div className="flex flex-row items-center gap-2">
-        <img className="rounded-full" width="32" height="32" alt="" src={img} />
-        <div className="flex flex-col">
-          <figcaption className="text-sm font-medium dark:text-white">
-            {name}
-          </figcaption>
-          <p className="text-xs font-medium dark:text-white/40">{username}</p>
-        </div>
-      </div>
-      <blockquote className="mt-2 text-sm">{body}</blockquote>
-    </figure>
-  )
-}
-
-export function Marquee3D() {
-  return (
-    <div className="relative flex h-96 w-full flex-row items-center justify-center gap-4 overflow-hidden [perspective:300px]">
-      <div
-        className="flex flex-row items-center gap-4"
-        style={{
-          transform:
-            "translateX(-100px) translateY(0px) translateZ(-100px) rotateX(20deg) rotateY(-10deg) rotateZ(20deg)",
-        }}
-      >
-        <Marquee pauseOnHover vertical className="[--duration:20s]">
-          {firstRow.map((review) => (
-            <ReviewCard key={review.username} {...review} />
-          ))}
-        </Marquee>
-        <Marquee reverse pauseOnHover className="[--duration:20s]" vertical>
-          {secondRow.map((review) => (
-            <ReviewCard key={review.username} {...review} />
-          ))}
-        </Marquee>
-        <Marquee reverse pauseOnHover className="[--duration:20s]" vertical>
-          {thirdRow.map((review) => (
-            <ReviewCard key={review.username} {...review} />
-          ))}
-        </Marquee>
-        <Marquee pauseOnHover className="[--duration:20s]" vertical>
-          {fourthRow.map((review) => (
-            <ReviewCard key={review.username} {...review} />
-          ))}
-        </Marquee>
-      </div>
-
-      <div className="from-background pointer-events-none absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b"></div>
-      <div className="from-background pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t"></div>
-      <div className="from-background pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r"></div>
-      <div className="from-background pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l"></div>
-    </div>
-  )
-}
-
-
-
-
+// mission
 
 const valeurs = [
   {
@@ -1198,20 +882,129 @@ const containerVariants = {
     opacity: 1,
     transition: {
       staggerChildren: 0.2,
-      delay  hidden: { opacity: 0, y: 40 },
+      delayChildren: 0.3
+    }
+  }
+};
+
 const cardVariants = {
-  hidden: { opacity:     transition: { duration: 0.7, ease: easeOut } // <-- use imported easeOut u  },tn};,.;,export  function NosValeurs() { r  return ({    <section className="py-20 px-6 bg-white">(       <div className="max-w-7xl mx-auto">>x        {/* En-tête */}>v        <motion.div}l          initial={{ opacity: 0, y: -30 }}v           whileInView={{ opacity: 1, y: 0 }}},          viewport={{ once: true }}}           transition={{ duration: 0.6 }}}{          className="text-center mb-16"}d        >".          <h2 className="text-5xl font-bold text-gray-900 mb-4">>             Nos Valeurs>l          </h2>sg          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">>t            Faso Craie incarne la fierté nationale, l&apos;innovation locale et l&apos;engagement pour la jeunesse burkinabè>o          </p>èp        </motion.div>>j>u        {/* Grille des cartes */}n         <motion.div}          variants={containerVariants}v           initial="hidden"}           whileInView="visible""           viewport={{ once: true, amount: 0.2 }}"i          className="grid md:grid-cols-3 gap-8"}:        >"           {valeurs.map((valeur, index) => {>"            const Icon = valeur.icon;al            return (                <motion.divur                key={index}(                 variants={cardVariants}                  whileHover={{                     y: -10,                    transition: { duration: 0.3 }y                 }}                  className={`${valeur.bgColor} rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-shadow duration-300 relative overflow-hidden group`}i               >o                 {/* Effet de fond au survol */}                  <div className={`absolute inset-0 bg-gradient-to-br ${valeur.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />o                 5                 {/* Icône */}0                 <motion.div                    initial={{ scale: 0, rotate: -180 }}                    whileInView={{ scale: 1, rotate: 0 }}                    viewport={{ once: true }}                    transition={{                       duration: 0.6,                      delay: index * 0.2 + 0.5,                      type: "spring",                      stiffness: 200                    }}                    className="mb-6 flex justify-center"                  >                    <div className={`${valeur.iconBg} w-20 h-20 rounded-full flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300`}>                      <Icon className="w-10 h-10 text-white" strokeWidth={2.5} />                    </div>                  </motion.div>                    {/* Contenu */}                  <div className="relative z-10 text-center">                    <h3 className="text-2xl font-bold text-gray-900 mb-4">                      {valeur.title}                    </h3>                    <p className="text-gray-700 leading-relaxed text-base">                      {valeur.description}                    </p>                  </div>                    {/* Décoration */}                  <motion.div                    initial={{ scale: 0 }}                    whileInView={{ scale: 1 }}                    viewport={{ once: true }}                    transition={{ delay: index * 0.2 + 0.7, duration: 0.8 }}                    className={`absolute -bottom-4 -right-4 w-24 h-24 bg-gradient-to-br ${valeur.color} rounded-full opacity-10 group-hover:scale-150 transition-transform duration-500`}                  />                </motion.div>              );            })}          </motion.div>  m         {/* Citation ou CTA optionnel */}          <motion.div            initial={{ opacity: 0, y: 30 }}            whileInView={{ opacity: 1, y: 0 }}            viewport={{ once: true }}            transition={{ duration: 0.6, delay: 0.8 }}            className="mt-16 text-center"          >            <div className="inline-block bg-gradient-to-r from-green-600 via-yellow-500 to-blue-600 p-1 rounded-2xl">              <div className="bg-white px-8 py-4 rounded-2xl">                <p className="text-xl font-semibold bg-gradient-to-r from-green-600 via-yellow-500 to-blue-600 bg-clip-text text-transparent">                  « Une craie 100% burkinabè, pour écrire l&apos;avenir »                </p>              </div>            </div>          </motion.div>        </div>      </section>    );  }}  </motion.di}eexport  function ConsommonsBurkinabe() {xp  return ( r    <section className="relative py-24 px-6 bg-gradient-to-br from-purple-600 via-pink-500 to-orange-500 overflow-hidden">        {/* Effet de fond avec cercles décoratifs animés */}        <div className="absolute inset-0 overflow-hidden">          <motion.div            animate={{              scale: [1, 1.3, 1],              rotate: [0, 180, 360],              x: [0, 100, 0],              y: [0, -50, 0]            }}            transition={{              duration: 25,              repeat: Infinity,              ease: "easeInOut"            }}:           className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-gradient-to-br from-yellow-400/20 to-pink-500/20 rounded-full blur-3xl"f         />4         <motion.div            animate={{"             scale: [1.2, 1, 1.2],
-             rotate: [360, 180, 0],c             x: [0, -100, 0],              y: [0, 50, 0]
-           }}:           transition={{              duration: 20,              repeat: Infinity,
-             ease: "easeInOut"            }}t:          className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-gradient-to-tr from-blue-400/20 to-purple-500/20 rounded-full blur-3xl" f        />00        <motion.div0           animate={{l"            scale: [1, 1.5, 1],iv            opacity: [0.3, 0.6, 0.3]sc          }},           transition={{y:            duration: 8,              repeat: Infinity,
-            ease: "easeInOut"            }}t:          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-r from-cyan-400/10 via-fuchsia-400/10 to-orange-400/10 rounded-full blur-3xl"ia        />00      </div>e-40      {/* Particules flottantes */}        {[...Array(20)].map((_, i) => (le        <motion.div            key={i}].          className="absolute w-2 h-2 bg-white/40 rounded-full"            style={{ut            left: `${Math.random() * 100}%`,              top: `${Math.random() * 100}%`,()          }}            animate={{th            y: [0, -30, 0],              opacity: [0, 1, 0],              scale: [0, 1.5, 0]            }} [          transition={{sc            duration: 3 + Math.random() * 2,an            repeat: Infinity,on            delay: Math.random() * 5, r          }}it        />        ))}: Ma      <div className="max-w-5xl mx-auto text-center relative z-10"> c        {/* Badge avec effet brillant */}el        <motion.div            initial={{ opacity: 0, scale: 0.8 }}ot          whileInView={{ opacity: 1, scale: 1 }} 0          viewport={{ once: true }}ci          transition={{ duration: 0.5 }}{           className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full mb-8 border border-white/30"ur        >py          <Sparkles className="w-5 h-5 text-yellow-300" />            <span className="text-white font-semibold">Mouvement National</span>Na          <Sparkles className="w-5 h-5 text-yellow-300" />          </motion.div>sNam        {/* Titre principal avec effet de brillance */}
-        <motion.h2pr          initial={{ opacity: 0, y: 30 }}            whileInView={{ opacity: 1, y: 0 }}0,          viewport={{ once: true }} o          transition={{ duration: 0.6 }}{           className="text-4xl md:text-5xl lg:text-7xl font-black text-white mb-6 leading-tight"5x        >-7          <motion.spante            animate={{                backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],              }}si            transition={{%"              duration: 5,}}              repeat: Infinity,                ease: "linear"              }}:             style={{                backgroundSize: "200% auto",              }}              className="bg-gradient-to-r from-white via-yellow-200 to-white bg-clip-text text-transparent inline-block"-2          > b            Rejoignez le Mouvemente-          </motion.span>            <br /> l          <span className="inline-block mt-3 text-white drop-shadow-2xl">cl            &quot;Consommons Burkinabè&quot;ha          </span>          </motion.h2> Bur        {/* Sous-titre */}sp        <motion.pti          initial={{ opacity: 0, y: 20 }}            whileInView={{ opacity: 1, y: 0 }}0,          viewport={{ once: true }} o          transition={{ duration: 0.6, delay: 0.2 }} }          className="text-xl md:text-2xl text-white/95 mb-12 max-w-3xl mx-auto leading-relaxed drop-shadow-lg font-medium"w-        >to          Choisissez Faso Craie et participez au développement de notre pays. Ensemble,  e          écrivons l&apos;avenir du Burkina Faso.mb        </motion.p>ivon        {/* Boutons CTA avec effets avancés */}io        <motion.div B          initial={{ opacity: 0, y: 20 }}            whileInView={{ opacity: 1, y: 0 }}0,          viewport={{ once: true }} o          transition={{ duration: 0.6, delay: 0.4 }} }          className="flex flex-col sm:flex-row gap-6 justify-center items-center"x         >sm          {/* Bouton Devenir partenaire - Design époustouflant */} {          <motion.buttonai            whileHover={{ scale: 1.08, y: -3 }}n.            whileTap={{ scale: 0.95 }}e:            className="group relative bg-gradient-to-r from-yellow-400 via-orange-500 to-pink-500 text-white font-bold py-5 px-12 rounded-2xl shadow-2xl transition-all duration-300 flex items-center gap-3 min-w-[260px] justify-center overflow-hidden"en          >in            <motion.diver              className="absolute inset-0 bg-gradient-to-r from-yellow-300 via-orange-400 to-pink-400 opacity-0 group-hover:opacity-100 transition-opacity"40              animate={{op                x: ["-100%", "100%"],                }}
-              transition={{,                 duration: 1.5,                  repeat: Infinity,                  ease: "linear"                }}fi            />              <span className="text-lg relative z-10">Devenir partenaire</span>as            <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform relative z-10" />ov          </motion.button>n-tr          {/* Bouton Nous contacter - Design glassmorphism */}            <motion.buttonct            whileHover={{ scale: 1.08, y: -3 }}n.            whileTap={{ scale: 0.95 }}e:            className="group relative bg-white/10 backdrop-blur-md border-2 border-white/40 hover:bg-white/20 hover:border-white text-white font-bold py-5 px-12 rounded-2xl shadow-2xl transition-all duration-300 flex items-center gap-3 min-w-[260px] justify-center"30          >s-            <Phone className="w-5 h-5 group-hover:rotate-12 transition-transform" />e=            <span className="text-lg">Nous contacter</span>              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" /> o          </motion.button>ty        </motion.div>ty"         {/* Éléments décoratifs avec animation de pulsation */}          <motion.divti          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}={          viewport={{ once: true }}ie          transition={{ duration: 1, delay: 0.6 }}ue          className="mt-16 flex justify-center gap-4"}}        >            {[0, 1, 2].map((i) => (nt            <motion.div                key={i}((              animate={{ti                scale: [1, 1.5, 1],                  opacity: [0.4, 1, 0.4]al              }}
-              transition={{}4                duration: 2,{                 repeat: Infinity,,                 delay: i * 0.3,               }}3f              className="w-3 h-3 bg-white rounded-full shadow-lg"}             />""          ))}>t        </motion.div>}l      </div>> >       {/* Ligne décorative animée en bas */}/       <motion.div}{        initial={{ scaleX: 0 }}vs        whileInView={{ scaleX: 1 }}}t        viewport={{ once: true }}}I        transition={{ duration: 1.5, delay: 0.8 }}}u        className="absolute bottom-0 left-0 right-0 h-1.5"}       >"a        <motion.div>t          animate={{v-            backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],{           }},P          transition={{}%            duration: 3,{             repeat: Infinity,,            ease: "linear",           }}"p          style={{}             backgroundSize: "200% auto",{           }},{          className="w-full h-full bg-gradient-to-r from-yellow-400 via-pink-500 to-cyan-400"g-        />o-      </motion.div>ia    </section>ya  );0"}
-}   const navigationLinks = [ >  { name: 'Accueil', href: '#accueil' },ga  { name: 'À propos', href: '#apropos' }, '  { name: 'Contact', href: '#contact' },: ];aproconst socialLinks = [on  { icon: Facebook, href: '#', label: 'Facebook' }, =  { icon: Linkedin, href: '#', label: 'LinkedIn' },'   { icon: Instagram, href: '#', label: 'Instagram' },},];  { export  function Footer() { l  return (ta    <footer className="bg-slate-900 text-gray-300">rn      <div className="max-w-7xl mx-auto px-6 py-12">0"        <div className="grid md:grid-cols-3 gap-12 mb-8">            {/* Colonne 1 - Logo et Description */}mb          <motion.divol            initial={{ opacity: 0, y: 20 }} <            whileInView={{ opacity: 1, y: 0 }} y            viewport={{ once: true }}pa            transition={{ duration: 0.6 }}on          >
-            {/* Logo */}{             <div className="flex items-center gap-3 mb-6">                <img src="/OIP.jpg" alt="Faso Craie Logo" className="w-12 h-12 object-contain" />je            </div>assN            {/* Description */}/>            <p className="text-gray-400 leading-relaxed mb-6">                La fierté du Burkina Faso à chaque trait de craie. Nous produisons des craies scolaires de haute qualité pour soutenir l&apos;éducation et promouvoir le &quot;Consommons burkinabè&quot;.ca            </p>ir l            {/* Réseaux sociaux */}
-            <div className="flex gap-4">au              {socialLinks.map((social, index) => {-4                const Icon = social.icon;l,                return (                    <motion.an;                    key={index}                      href={social.href}                      whileHover={{ scale: 1.1, y: -2 }}}                     whileTap={{ scale: 0.95 }}y                     className="w-10 h-10 bg-slate-800 hover:bg-green-500 rounded-lg flex items-center justify-center transition-colors duration-300 group"t                     aria-label={social.label}0                   >                      <Icon className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />x                   </motion.a>i                 );s               })}              </div>            </motion.div>   <          {/* Colonne 2 - Navigation */}/           <motion.div              initial={{ opacity: 0, y: 20 }}<             whileInView={{ opacity: 1, y: 0 }}y             viewport={{ once: true }}a             transition={{ duration: 0.6, delay: 0.2 }}            >              <h3 className="text-white text-lg font-bold mb-6">Navigation</h3>              <ul className="space-y-3">                {navigationLinks.map((link, index) => (                  <li key={index}>                    <motion.a                      href={link.href}                      whileHover={{ x: 5 }}                      className="text-gray-400 hover:text-green-400 transition-colors duration-300 flex items-center gap-2 group"                    >                      <span className="w-0 h-0.5 bg-green-400 group-hover:w-4 transition-all duration-300" />                      {link.name}                    </motion.a>                  </li>                ))}              </ul>            </motion.div>              {/* Colonne 3 - Contact */}            <motion.div              initial={{ opacity: 0, y: 20 }}              whileInView={{ opacity: 1, y: 0 }}              viewport={{ once: true }}              transition={{ duration: 0.6, delay: 0.4 }}            >              <h3 className="text-white text-lg font-bold mb-6">Contact</h3>              <ul className="space-y-4">                <li className="flex items-start gap-3">                  <MapPin className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" />                  <span className="text-gray-400">Ouagadougou, Burkina Faso</span>                </li>                <li className="flex items-center gap-3">                  <Phone className="w-5 h-5 text-green-400 flex-shrink-0" />                  <a href="tel:+226XXXXXXXX" className="text-gray-400 hover:text-green-400 transition-colors">                    +226 XX XX XX XX                  </a>                </li>                <li className="flex items-center gap-3">                  <Mail className="w-5 h-5 text-green-400 flex-shrink-0" />                  <a href="mailto:contact@fasocraie.bf" className="text-gray-400 hover:text-green-400 transition-colors">                    contact@fasocraie.bf                  </a>                </li>              </ul>            </motion.div>          </div>            {/* Ligne de séparation */}          <motion.div            initial={{ scaleX: 0 }}            whileInView={{ scaleX: 1 }}            viewport={{ once: true }}            transition={{ duration: 0.8 }}            className="h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent mb-8"          />            {/* Bas du footer */}          <div className="flex flex-col md:flex-row justify-between items-center gap-4">            <motion.p              initial={{ opacity: 0 }}              whileInView={{ opacity: 1 }}              viewport={{ once: true }}              transition={{ duration: 0.6 }}              className="text-gray-500 text-sm"            >              © 2024 Faso Craie. Tous droits réservés.            </motion.p>              {/* Widget de chat */}            <motion.div              initial={{ opacity: 0 }}              whileInView={{ opacity: 1 }}              viewport={{ once: true }}              transition={{ duration: 0.6, delay: 0.2 }}              className="flex items-center gap-2 text-sm"            >              <span className="text-gray-500">Discuter avec nous</span>              <div className="flex items-center gap-1">                <div className="w-6 h-6 bg-green-400 rounded-full flex items-center justify-center">                  <MessageCircle className="w-4 h-4 text-white" />                </div>                <span className="text-gray-400 font-semibold">Whatsapp</span>              </div>            </motion.div>          </div>        </div>          {/* Effet de lumière en haut */}        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-green-500/50 to-transparent" />      </footer></  );a-}eaconsconst missions = [t   {
+  hidden: { opacity: 0, y: 40, scale: 0.9 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    scale: 1, 
+    transition: { duration: 0.7, ease: easeOut } // <-- use imported easeOut
+  },
+};
+
+export  function NosValeurs() {
+  return (
+    <section className="py-20 px-6 bg-white">
+      <div className="max-w-7xl mx-auto">
+        {/* En-tête */}
+        <motion.div
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-5xl font-bold text-gray-900 mb-4">
+            Nos Valeurs
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Faso Craie incarne la fierté nationale, l&apos;innovation locale et l&apos;engagement pour la jeunesse burkinabè
+          </p>
+        </motion.div>
+
+        {/* Grille des cartes */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          className="grid md:grid-cols-3 gap-8"
+        >
+          {valeurs.map((valeur, index) => {
+            const Icon = valeur.icon;
+            return (
+              <motion.div
+                key={index}
+                variants={cardVariants}
+                whileHover={{ 
+                  y: -10,
+                  transition: { duration: 0.3 }
+                }}
+                className={`${valeur.bgColor} rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-shadow duration-300 relative overflow-hidden group`}
+              >
+                {/* Effet de fond au survol */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${valeur.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
+                
+                {/* Icône */}
+                <motion.div
+                  initial={{ scale: 0, rotate: -180 }}
+                  whileInView={{ scale: 1, rotate: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ 
+                    duration: 0.6,
+                    delay: index * 0.2 + 0.5,
+                    type: "spring",
+                    stiffness: 200
+                  }}
+                  className="mb-6 flex justify-center"
+                >
+                  <div className={`${valeur.iconBg} w-20 h-20 rounded-full flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300`}>
+                    <Icon className="w-10 h-10 text-white" strokeWidth={2.5} />
+                  </div>
+                </motion.div>
+
+                {/* Contenu */}
+                <div className="relative z-10 text-center">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                    {valeur.title}
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed text-base">
+                    {valeur.description}
+                  </p>
+                </div>
+
+                {/* Décoration */}
+                <motion.div
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.2 + 0.7, duration: 0.8 }}
+                  className={`absolute -bottom-4 -right-4 w-24 h-24 bg-gradient-to-br ${valeur.color} rounded-full opacity-10 group-hover:scale-150 transition-transform duration-500`}
+                />
+              </motion.div>
+            );
+          })}
+        </motion.div>
+
+        {/* Citation ou CTA optionnel */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.8 }}
+          className="mt-16 text-center"
+        >
+          <div className="inline-block bg-gradient-to-r from-green-600 via-yellow-500 to-blue-600 p-1 rounded-2xl">
+            <div className="bg-white px-8 py-4 rounded-2xl">
+              <p className="text-xl font-semibold bg-gradient-to-r from-green-600 via-yellow-500 to-blue-600 bg-clip-text text-transparent">
+                « Une craie 100% burkinabè, pour écrire l&apos;avenir »
+              </p>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+
+const missions = [
+  {
     icon: Factory,
     title: "Production Locale",
     description: "Développer une industrie locale forte et créer des emplois durables pour les jeunes burkinabè.",
@@ -1237,28 +1030,7 @@ const cardVariants = {
   }
 ];
 
-const missionContainerVariants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.7 } // <-- use imported easeOut
-  },
-};
 
-const missionCardVariants = {
-  hidden: { 
-    opacity: 0, 
-    y: 50
-  },
-  visible: { 
-    opacity: 1, 
-    y: 0,
-    transition: {
-      duration: 0.6
-    }
-  }
-};
 
 export  function NotreMission() {
   return (
@@ -1282,7 +1054,7 @@ export  function NotreMission() {
 
         {/* Grille des cartes */}
         <motion.div
-          variants={missionContainerVariants}
+          variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
@@ -1293,7 +1065,7 @@ export  function NotreMission() {
             return (
               <motion.div
                 key={index}
-                variants={missionCardVariants}
+                variants={cardVariants}
                 whileHover={{ 
                   y: -10,
                   boxShadow: "0 20px 40px rgba(0,0,0,0.1)",
@@ -1363,8 +1135,250 @@ export  function NotreMission() {
       </div>
     </section>
   );
-}</motion.div>
+}
+
+
+
+
+const reviews = [
+  {
+    name: "Jack",
+    username: "@jack",
+    body: "I've never seen anything like this before. It's amazing. I love it.",
+    img: "https://avatar.vercel.sh/jack",
+  },
+  {
+    name: "Jill",
+    username: "@jill",
+    body: "I don't know what to say. I'm speechless. This is amazing.",
+    img: "https://avatar.vercel.sh/jill",
+  },
+  {
+    name: "John",
+    username: "@john",
+    body: "I'm at a loss for words. This is amazing. I love it.",
+    img: "https://avatar.vercel.sh/john",
+  },
+  {
+    name: "Jane",
+    username: "@jane",
+    body: "I'm at a loss for words. This is amazing. I love it.",
+    img: "https://avatar.vercel.sh/jane",
+  },
+  {
+    name: "Jenny",
+    username: "@jenny",
+    body: "I'm at a loss for words. This is amazing. I love it.",
+    img: "https://avatar.vercel.sh/jenny",
+  },
+  {
+    name: "James",
+    username: "@james",
+    body: "I'm at a loss for words. This is amazing. I love it.",
+    img: "https://avatar.vercel.sh/james",
+  },
+]
+
+const firstRow = reviews.slice(0, reviews.length / 2)
+const secondRow = reviews.slice(reviews.length / 2)
+
+const ReviewCard = ({
+  img,
+  name,
+  username,
+  body,
+}: {
+  img: string
+  name: string
+  username: string
+  body: string
+}) => {
+  return (
+    <figure
+      className={cn(
+        "relative h-full w-64 cursor-pointer overflow-hidden rounded-xl border p-4",
+        // light styles
+        "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
+        // dark styles
+        "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]"
+      )}
+    >
+      <div className="flex flex-row items-center gap-2">
+        <Image className="rounded-full" width="32" height="32" alt="" src={img} />
+        <div className="flex flex-col">
+          <figcaption className="text-sm font-medium dark:text-white">
+            {name}
+          </figcaption>
+          <p className="text-xs font-medium dark:text-white/40">{username}</p>
+        </div>
       </div>
-    </section>
+      <blockquote className="mt-2 text-sm">{body}</blockquote>
+    </figure>
+  )
+}
+
+export function MarqueeDemo() {
+  return (
+    <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
+      <Marquee pauseOnHover className="[--duration:20s]">
+        {firstRow.map((review) => (
+          <ReviewCard key={review.username} {...review} />
+        ))}
+      </Marquee>
+      <Marquee reverse pauseOnHover className="[--duration:20s]">
+        {secondRow.map((review) => (
+          <ReviewCard key={review.username} {...review} />
+        ))}
+      </Marquee>
+      <div className="from-background pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r"></div>
+      <div className="from-background pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l"></div>
+    </div>
+  )
+}
+
+
+
+
+
+
+/// Footer
+const navigationLinks = [
+  { name: 'Accueil', href: '#accueil' },
+  { name: 'À propos', href: '/about' },
+  { name: 'Nos produits', href: '#produits' },
+  { name: 'Contact', href: '#contact' },
+];
+
+const socialLinks = [
+  { icon: Facebook, href: '#', label: 'Facebook' },
+  { icon: Linkedin, href: '#', label: 'LinkedIn' },
+  { icon: Instagram, href: '#', label: 'Instagram' },
+];
+
+export  function Footer() {
+  return (
+    <footer className="bg-slate-900 text-gray-300">
+      <div className="max-w-7xl mx-auto px-6 py-12">
+        <div className="grid md:grid-cols-3 gap-12 mb-8">
+          {/* Colonne 1 - Logo et Description */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            {/* Logo */}
+            <div className="flex items-center gap-3 mb-6">
+              <Image src="/OIP.jpg" alt="Faso Craie Logo" width={48} height={48} />
+            </div>
+
+            {/* Description */}
+            <p className="text-gray-400 leading-relaxed mb-6">
+              La fierté du Burkina Faso à chaque trait de craie. Nous produisons des craies scolaires de haute qualité pour soutenir l&apos;éducation et promouvoir le &quot;Consommons burkinabè&quot;.
+            </p>
+
+            {/* Réseaux sociaux */}
+            <div className="flex gap-4">
+              {socialLinks.map((social, index) => {
+                const Icon = social.icon;
+                return (
+                  <motion.a
+                    key={index}
+                    href={social.href}
+                    whileHover={{ scale: 1.1, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="w-10 h-10 bg-slate-800 hover:bg-green-500 rounded-lg flex items-center justify-center transition-colors duration-300 group"
+                    aria-label={social.label}
+                  >
+                    <Icon className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
+                  </motion.a>
+                );
+              })}
+            </div>
+          </motion.div>
+
+          {/* Colonne 2 - Navigation */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <h3 className="text-white text-lg font-bold mb-6">Navigation</h3>
+            <ul className="space-y-3">
+              {navigationLinks.map((link, index) => (
+                <li key={index}>
+                  <motion.a
+                    href={link.href}
+                    whileHover={{ x: 5 }}
+                    className="text-gray-400 hover:text-green-400 transition-colors duration-300 flex items-center gap-2 group"
+                  >
+                    <span className="w-0 h-0.5 bg-green-400 group-hover:w-4 transition-all duration-300" />
+                    {link.name}
+                  </motion.a>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* Colonne 3 - Contact */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <h3 className="text-white text-lg font-bold mb-6">Contact</h3>
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3">
+                <MapPin className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" />
+                <span className="text-gray-400">Ouagadougou, Burkina Faso</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Phone className="w-5 h-5 text-green-400 flex-shrink-0" />
+                <a href="tel:+226XXXXXXXX" className="text-gray-400 hover:text-green-400 transition-colors">
+                  +226 54 53 52 25
+                </a>
+              </li>
+              <li className="flex items-center gap-3">
+                <Mail className="w-5 h-5 text-green-400 flex-shrink-0" />
+                <a href="mailto:contact@fasocraie.bf" className="text-gray-400 hover:text-green-400 transition-colors">
+                  contact@fasocraie.bf
+                </a>
+              </li>
+            </ul>
+          </motion.div>
+        </div>
+
+        {/* Ligne de séparation */}
+        <motion.div
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent mb-8"
+        />
+
+        {/* Bas du footer */}
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-gray-500 text-sm"
+          >
+            © 2025 Faso Craie. Tous droits réservés.
+          </motion.p>
+
+          
+        </div>
+      </div>
+
+      {/* Effet de lumière en haut */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-green-500/50 to-transparent" />
+    </footer>
   );
 }
+
+
