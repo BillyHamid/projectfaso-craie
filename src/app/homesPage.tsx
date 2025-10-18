@@ -15,7 +15,6 @@ import { motion } from "motion/react";
 import React from "react";
 import { ImagesSlider } from "../components/ui/images-slider";
 import { cn } from "@/lib/utils";
-import { StickyBanner } from "@/components/ui/sticky-banner";
 
 import { HeroHighlight, Highlight } from "../components/ui/hero-highlight";
 import { BentoGrid, BentoGridItem } from "../components/ui/bento-grid";
@@ -42,8 +41,11 @@ import { Heart, Lightbulb, GraduationCap } from 'lucide-react';
 
 import { Factory, BookOpen, Globe2 } from 'lucide-react';
 
-import { Facebook, Linkedin, Instagram, MapPin, Phone, Mail, MessageCircle } from 'lucide-react';
+import { Facebook, Linkedin, Instagram, MapPin, Phone, Mail } from 'lucide-react';
 import { Marquee } from "../components/ui/marquee";
+import { Sparkles, Rocket, Leaf, Award, Zap } from 'lucide-react';
+import { ContainerTextFlip } from "@/components/ui/container-text-flip";
+
 
 
 export default function NavbarDemo() {
@@ -152,26 +154,6 @@ export function ImagesSliderDemo() {
 
 
 
-export function StickyBannerDemo() {
-  return (
-    <div className="relative flex w-full flex-col">
-  <StickyBanner className="bg-gradient-to-b from-blue-500 to-blue-600"
->
-    <p className="mx-0 max-w-[90%] text-white drop-shadow-md">
-  Une nouvelle étape commence : de nouvelles solutions pour mieux répondre à vos besoins.{" "}
-  <a href="#" className="transition duration-200 hover:underline">
-    Lire l’annonce
-  </a>
-</p>
-
-  </StickyBanner>
-</div>
-
-  );
-}
-
-
-
 
 
 
@@ -192,7 +174,7 @@ export function HeroHighlightDemo() {
           duration: 0.5,
           ease: [0.4, 0.0, 0.2, 1],
         }}
-        className="text-2xl px-4 md:text-4xl lg:text-5xl font-bold text-neutral-700 dark:text-white max-w-4xl leading-relaxed lg:leading-snug text-center mx-auto "
+        className="text-2xl px-0 md:text-4xl lg:text-5xl font-bold text-neutral-700 dark:text-white max-w-4xl leading-relaxed lg:leading-snug text-center mx-auto "
       >
         Sans craie, rien n&apos;est écrit. Rien n&apos;est transmis. Chaque trait que l&apos;on trace 
         {" "}
@@ -557,7 +539,8 @@ const content = [
        <Image
           src="/OIP.jpg"
           alt="linear board demo"
-          fill
+          width={300}
+          height={300}
           className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg h-auto object-cover"
         />
       </div>
@@ -644,7 +627,7 @@ export function ColourfulTextDemo() {
 
 export function FollowingPointerDemo() {
   return (
-    <div className="mx-auto w-full max-w-3xl p-30">
+    <div className="mx-auto w-full max-w-3xl p-4 sm:p-6 md:p-30">
       <FollowerPointerCard
         title={
           <TitleComponent
@@ -654,24 +637,26 @@ export function FollowingPointerDemo() {
         }
       >
         <div className="group relative h-full overflow-hidden rounded-2xl border border-zinc-100 bg-white transition duration-200 hover:shadow-xl">
-          <div className="relative aspect-[16/10] w-full overflow-hidden rounded-tl-lg rounded-tr-lg bg-gray-100">
+          {/* ✅ Image adaptée au mobile */}
+          <div className="relative w-full h-60 sm:h-64 md:aspect-[16/10] overflow-hidden rounded-tl-lg rounded-tr-lg bg-gray-100">
             <Image
               src={blogContent.image}
               alt="thumbnail"
               fill
-              className="transform object-cover transition duration-200 group-hover:scale-95 group-hover:rounded-2xl"
+              className="object-cover transition duration-200 group-hover:scale-95 group-hover:rounded-2xl"
             />
           </div>
-          <div className="p-4">
-            <h2 className="my-4 text-lg font-bold text-zinc-700">
+
+          {/* ✅ Texte avec marges ajustées sur mobile */}
+          <div className="p-4 sm:p-6">
+            <h2 className="my-3 text-lg sm:text-xl font-bold text-zinc-700">
               {blogContent.title}
             </h2>
-            <h2 className="my-4 text-sm font-normal text-zinc-500">
+            <p className="text-sm sm:text-base text-zinc-600 leading-relaxed">
               {blogContent.description}
-            </h2>
-            <div className="mt-10 flex flex-row items-center justify-between">
-              <span className="text-sm text-gray-500">{blogContent.date}</span>
-             
+            </p>
+            <div className="mt-6 flex flex-row items-center justify-between text-xs sm:text-sm text-gray-500">
+              <span>{blogContent.date}</span>
             </div>
           </div>
         </div>
@@ -683,10 +668,10 @@ export function FollowingPointerDemo() {
 const blogContent = {
   slug: "Promoteur: GORO Kaho Abdel Rabin",
   author: "Rabin Goro",
-  date: "20th September, 2025",
-  title: "Promoteur: GORO Kaho Abdel Rabin",
+  date: "20 septembre 2025",
+  title: "Promoteur : GORO Kaho Abdel Rabin",
   description:
-    "Rabin Goro est un entrepreneur burkinabè visionnaire, originaire de Bobo-Dioulasso. Très engagé dans les actions de la promotion de la jeunesse entreprenante, Il est Co-promoteur, du Forum National de l’Étudiant Entrepreneur (FN2E). Il préside actuellement l’association des jeunes pour le développement du SYA (AJDS) Il assure la Coordination de la  SCOOPS BATIR l’AVENIR HBS Initiateur du projet Faso Tomate, Il assure aussi  à ce jour, la coordination de l’APEC dans la région des Hauts Bassins ",
+    "Rabin Goro est un entrepreneur burkinabè visionnaire, originaire de Bobo-Dioulasso. Très engagé dans la promotion de la jeunesse entreprenante, il est co-promoteur du Forum National de l’Étudiant Entrepreneur (FN2E). Il préside l’AJDS et coordonne plusieurs initiatives, dont le projet Faso Tomate et l’APEC des Hauts-Bassins.",
   image: "/2e28dbf9-c270-4c05-b101-929cbef11890 (1).jpg",
   authorAvatar: "/d9a2f9a6-bc25-48b8-b978-c4e3f7277f2c.jpg",
 };
@@ -701,25 +686,23 @@ const TitleComponent = ({
   <div className="flex items-center space-x-2">
     <Image
       src={avatar}
-      height="20"
-      width="20"
-      alt="thumbnail"
-      className="rounded-full border-2 border-white"
+      height={28}
+      width={28}
+      alt="Auteur"
+      className="rounded-full border-2 border-white shadow-md"
     />
-    <p>{title}</p>
+    <p className="text-sm sm:text-base font-semibold text-gray-700">{title}</p>
   </div>
 );
 
-
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.7, ease: easeOut } // <-- use imported easeOut
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: easeOut },
   },
 };
-
 const words1 = `L’histoire de FASO CRAIE, fondée en 2021, repose sur une volonté profonde de
 contribuer au développement du Burkina Faso en réduisant sa dépendance
 aux importations. Le constat de départ était clair : malgré les milliers d'écoles
@@ -897,6 +880,83 @@ const cardVariants = {
   },
 };
 
+
+
+
+
+
+///////
+
+const valeursContainerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2
+    }
+  }
+};
+
+const valeursCardVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6 }
+  }
+};
+
+const nosValeursData = [
+  {
+    icon: Sparkles,
+    title: "Excellence",
+    description: "Une qualité irréprochable dans chaque craie produite, reflétant le savoir-faire burkinabè et notre engagement envers l'éducation.",
+    bgColor: "bg-gradient-to-br from-amber-50 to-yellow-100",
+    color: "from-amber-400 to-yellow-600",
+    iconBg: "bg-gradient-to-br from-amber-500 to-yellow-600"
+  },
+  {
+    icon: Rocket,
+    title: "Innovation",
+    description: "Nous repoussons les limites avec des solutions créatives et modernes pour réinventer la production locale.",
+    bgColor: "bg-gradient-to-br from-blue-50 to-indigo-100",
+    color: "from-blue-400 to-indigo-600",
+    iconBg: "bg-gradient-to-br from-blue-500 to-indigo-600"
+  },
+  {
+    icon: Heart,
+    title: "Engagement Social",
+    description: "Au cœur de notre mission : créer des opportunités pour la jeunesse et contribuer au développement du Burkina Faso.",
+    bgColor: "bg-gradient-to-br from-rose-50 to-pink-100",
+    color: "from-rose-400 to-pink-600",
+    iconBg: "bg-gradient-to-br from-rose-500 to-pink-600"
+  },
+  {
+    icon: Leaf,
+    title: "Durabilité",
+    description: "Une production éco-responsable qui préserve notre environnement pour les générations futures.",
+    bgColor: "bg-gradient-to-br from-emerald-50 to-green-100",
+    color: "from-emerald-400 to-green-600",
+    iconBg: "bg-gradient-to-br from-emerald-500 to-green-600"
+  },
+  {
+    icon: Zap,
+    title: "Impact Local",
+    description: "Chaque craie produite contribue à l'économie locale et renforce l'autonomie du Burkina Faso.",
+    bgColor: "bg-gradient-to-br from-purple-50 to-violet-100",
+    color: "from-purple-400 to-violet-600",
+    iconBg: "bg-gradient-to-br from-purple-500 to-violet-600"
+  },
+  {
+    icon: Award,
+    title: "Fierté Nationale",
+    description: "Faso Craie incarne l'excellence burkinabè et la capacité de notre pays à produire des produits de classe mondiale.",
+    bgColor: "bg-gradient-to-br from-orange-50 to-red-100",
+    color: "from-orange-400 to-red-600",
+    iconBg: "bg-gradient-to-br from-orange-500 to-red-600"
+  }
+];
+
 export  function NosValeurs() {
   return (
     <section className="py-20 px-6 bg-white">
@@ -917,25 +977,25 @@ export  function NosValeurs() {
           </p>
         </motion.div>
 
-        {/* Grille des cartes */}
+        {/* Grille desktop / Scroll horizontal mobile */}
         <motion.div
-          variants={containerVariants}
+          variants={valeursContainerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
-          className="grid md:grid-cols-3 gap-8"
+          className="md:grid md:grid-cols-3 md:gap-8 flex md:flex-none overflow-x-auto md:overflow-visible snap-x snap-mandatory scrollbar-hide pb-4 -mx-6 px-6 md:mx-0 md:px-0"
         >
-          {valeurs.map((valeur, index) => {
+          {nosValeursData.map((valeur, index) => {
             const Icon = valeur.icon;
             return (
               <motion.div
                 key={index}
-                variants={cardVariants}
+                variants={valeursCardVariants}
                 whileHover={{ 
                   y: -10,
                   transition: { duration: 0.3 }
                 }}
-                className={`${valeur.bgColor} rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-shadow duration-300 relative overflow-hidden group`}
+                className={`${valeur.bgColor} rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-shadow duration-300 relative overflow-hidden group min-w-[85vw] md:min-w-0 snap-center mr-4 md:mr-0`}
               >
                 {/* Effet de fond au survol */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${valeur.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
@@ -953,7 +1013,7 @@ export  function NosValeurs() {
                   }}
                   className="mb-6 flex justify-center"
                 >
-                  <div className={`${valeur.iconBg} w-20 h-20 rounded-full flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300`}>
+                  <div className={`${valeur.iconBg} w-20 h-20 rounded-full flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:rotate-12 transition-all duration-300`}>
                     <Icon className="w-10 h-10 text-white" strokeWidth={2.5} />
                   </div>
                 </motion.div>
@@ -981,6 +1041,13 @@ export  function NosValeurs() {
           })}
         </motion.div>
 
+        {/* Indicateur de scroll sur mobile */}
+        <div className="md:hidden text-center mt-6">
+          <p className="text-sm text-gray-500 flex items-center justify-center gap-2">
+            <span>← Glissez pour voir plus →</span>
+          </p>
+        </div>
+
         {/* Citation ou CTA optionnel */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -998,6 +1065,16 @@ export  function NosValeurs() {
           </div>
         </motion.div>
       </div>
+
+      <style jsx>{`
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      `}</style>
     </section>
   );
 }
@@ -1204,7 +1281,7 @@ const ReviewCard = ({
       )}
     >
       <div className="flex flex-row items-center gap-2">
-        <Image className="rounded-full" width="32" height="32" alt="" src={img} />
+        <img className="rounded-full" width="32" height="32" alt="" src={img} />
         <div className="flex flex-col">
           <figcaption className="text-sm font-medium dark:text-white">
             {name}
@@ -1219,7 +1296,7 @@ const ReviewCard = ({
 
 export function MarqueeDemo() {
   return (
-    <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
+    <div className="relative flex w-full flex-col items-center justify-center overflow-hidden my-20">
       <Marquee pauseOnHover className="[--duration:20s]">
         {firstRow.map((review) => (
           <ReviewCard key={review.username} {...review} />
@@ -1381,4 +1458,30 @@ export  function Footer() {
   );
 }
 
+
+
+
+
+export function ContainerTextFlipDemo() {
+  const words = ["better", "modern", "beautiful", "awesome"];
+  return (
+    <motion.h1
+      initial={{
+        opacity: 0,
+      }}
+      whileInView={{
+        opacity: 1,
+      }}
+      className={cn(
+        "relative mb-6 max-w-2xl text-left text-4xl leading-normal font-bold tracking-tight text-zinc-700 md:text-7xl dark:text-zinc-100",
+      )}
+      layout
+    >
+      <div className="inline-block">
+        Make your websites look 10x <ContainerTextFlip words={words} />
+        {/* <Blips /> */}
+      </div>
+    </motion.h1>
+  );
+}
 
