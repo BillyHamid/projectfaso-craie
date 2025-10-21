@@ -1,4 +1,4 @@
-import NavbarDemo, { BentoGridThirdDemo,  Footer, HeroHighlightDemo, ImagesSliderDemo,  MarqueeDemo,  NosValeurs, StickyScrollRevealDemo } from "./homesPage";
+import NavbarDemo, { BentoGridThirdDemo,  ContainerTextFlipDemo,  Footer, HeroHighlightDemo, HeroVideoDialogDemo, ImagesSliderDemo,  MarqueeDemo,  NosValeurs, StickyScrollRevealDemo } from "./homesPage";
 
 
 
@@ -11,8 +11,10 @@ const Page = () => {
       <BentoGridThirdDemo />
       <NosValeurs />
       <StickyScrollRevealDemo />
-      {/* <ContainerTextFlipDemo /> */}
+      <ContainerTextFlipDemo /> 
       <MarqueeDemo />
+      <HeroVideoDialogDemo />
+      
       <Footer />
     </div>
   );

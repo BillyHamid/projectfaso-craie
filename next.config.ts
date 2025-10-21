@@ -1,13 +1,19 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Plus besoin de "experimental.turbopack"
-  // Tu peux simplement ajouter d'autres options ici si besoin
-
-  // Facultatif : pour éviter le warning de "Cross origin"
+  reactStrictMode: true,
   allowedDevOrigins: [
-    "http://localhost:3000",
-    "http://172.24.208.1:3000",
+    'http://localhost:3000',   // ton localhost
+    'http://127.0.0.1:3000',   // localhost alternatif
+    'http://172.18.48.1:3000'  // ton IP réseau local
   ],
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'startup-template-sage.vercel.app',
+      },
+    ],
+  },
 };
 
 module.exports = nextConfig;

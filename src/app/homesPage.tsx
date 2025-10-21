@@ -10,7 +10,7 @@ import {
   MobileNavToggle,
   MobileNavMenu,
 } from "@/components/ui/resizable-navbar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import React from "react";
 import { ImagesSlider } from "../components/ui/images-slider";
@@ -45,6 +45,10 @@ import { Facebook, Linkedin, Instagram, MapPin, Phone, Mail } from 'lucide-react
 import { Marquee } from "../components/ui/marquee";
 import { Sparkles, Rocket, Leaf, Award, Zap } from 'lucide-react';
 import { ContainerTextFlip } from "@/components/ui/container-text-flip";
+import { HeroVideoDialog } from "../components/ui/hero-video-dialog";
+import { VideoText } from "@/components/ui/video-text";
+
+
 
 
 
@@ -60,7 +64,7 @@ export default function NavbarDemo() {
     },
     {
       name: "Contactez-nous",
-      link: "#contact",
+      link: "/contact",
     },
   ];
 
@@ -492,6 +496,7 @@ const items = [
     header: <SkeletonTwo />,
     className: "md:col-span-1",
     icon: <IconFileBroken className="h-4 w-4 text-neutral-500" />,
+    href: "/contact",
   },
   {
     title: "Objectif et vision",
@@ -1320,10 +1325,10 @@ export function MarqueeDemo() {
 
 /// Footer
 const navigationLinks = [
-  { name: 'Accueil', href: '#accueil' },
+  { name: 'Accueil', href: '/' },
   { name: 'À propos', href: '/about' },
   { name: 'Nos produits', href: '#produits' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'Contact', href: '/contact' },
 ];
 
 const socialLinks = [
@@ -1463,25 +1468,98 @@ export  function Footer() {
 
 
 export function ContainerTextFlipDemo() {
-  const words = ["better", "modern", "beautiful", "awesome"];
+  const words = ["témoignages", "commentaires", "feedback", "avis"];
   return (
-    <motion.h1
-      initial={{
-        opacity: 0,
-      }}
-      whileInView={{
-        opacity: 1,
-      }}
-      className={cn(
-        "relative mb-6 max-w-2xl text-left text-4xl leading-normal font-bold tracking-tight text-zinc-700 md:text-7xl dark:text-zinc-100",
-      )}
-      layout
-    >
-      <div className="inline-block">
-        Make your websites look 10x <ContainerTextFlip words={words} />
-        {/* <Blips /> */}
-      </div>
-    </motion.h1>
+    <div className="flex justify-center mt-50 mb-0">
+      <motion.h1
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        className={cn(
+          "text-center text-4xl md:text-7xl font-bold text-zinc-700 dark:text-zinc-100 leading-tight tracking-tight"
+        )}
+        layout
+      >
+        <span className="inline-block">
+          Découvrir nos <ContainerTextFlip words={words} />
+        </span>
+      </motion.h1>
+    </div>
   );
+}
+
+
+
+
+export function HeroVideoDialogDemo() {
+  return (
+    <div className="relative flex justify-center items-center gap-6 pb-10">
+      {/* Première vidéo */}
+      <div className="flex flex-col items-center">
+        <HeroVideoDialog
+          className="block dark:hidden"
+          animationStyle="from-center"
+          videoSrc="/faso.mp4"
+          thumbnailSrc="/47e004f1-a06e-4be1-a9be-b1de8e17bd5c.jpg"
+          thumbnailAlt="Hero Video"
+
+        />
+        <HeroVideoDialog
+          className="hidden dark:block"
+          animationStyle="from-center"
+          videoSrc="/faso.mp4"
+          thumbnailSrc="/47e004f1-a06e-4be1-a9be-b1de8e17bd5c.jpg"
+          thumbnailAlt="Hero Video"
+        />
+      </div>
+
+      {/* Deuxième vidéo */}
+      <div className="flex flex-col items-center">
+        <HeroVideoDialog
+          className="block dark:hidden"
+          animationStyle="from-center"
+          videoSrc="/FASO2.mp4"
+          thumbnailSrc="/tof.jpg"
+          thumbnailAlt="Hero Video"
+        />
+        <HeroVideoDialog
+          className="hidden dark:block"
+          animationStyle="from-center"
+          videoSrc="/FASO2.mp4"
+          thumbnailSrc="/tof.jpg"
+          thumbnailAlt="Hero Video"
+        />
+      </div>
+    </div>
+  );
+}
+
+
+export function VideoTextDemo() {
+  const [fontSize, setFontSize] = useState(8)
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) setFontSize(8)     // mobile
+      else if (window.innerWidth < 1024) setFontSize(8) // tablette
+      else setFontSize(10)                             // desktop
+    }
+
+    handleResize()
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
+
+  return (
+    <div className="relative w-full overflow-hidden flex items-center justify-center h-[150px] sm:h-[200px] md:h-[250px]">
+      <VideoText
+        src="https://cdn.magicui.design/ocean-small.webm"
+        fontSize={fontSize}
+        fontWeight="900"
+        fontFamily="Poppins, sans-serif"
+      >
+        FASO CRAIE
+      </VideoText>
+    </div>
+  )
 }
 
