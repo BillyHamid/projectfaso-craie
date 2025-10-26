@@ -48,6 +48,7 @@ import { ContainerTextFlip } from "@/components/ui/container-text-flip";
 import { HeroVideoDialog } from "../components/ui/hero-video-dialog";
 import { VideoText } from "@/components/ui/video-text";
 
+import {  AnimatePresence } from 'framer-motion';
 
 
 
@@ -61,6 +62,10 @@ export default function NavbarDemo() {
     {
       name: "A propos de nous",
       link: "/about",
+    },
+    {
+      name: "Nos Produits",
+      link: "/products",
     },
     {
       name: "Contactez-nous",
@@ -1121,7 +1126,7 @@ export  function NotreMission() {
         {/* En-tête */}
         <motion.div
           initial={{ opacity: 0, y: -30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
@@ -1563,3 +1568,111 @@ export function VideoTextDemo() {
   )
 }
 
+
+// --- TypeScript Interfaces ---
+interface MasonryItem {
+  id: number;
+  imageUrl: string;
+  title: string;
+}
+
+interface GridItemProps {
+  item: MasonryItem;
+}
+
+interface MasonryGridProps {
+  items: MasonryItem[];
+}
+
+
+
+// --- Simplified mock data (no author info) ---
+const initialItems = [
+  { id: 1, imageUrl: '/usine/DSC_1537.jpg', title: 'Misty Mountain Valley' },
+  { id: 2, imageUrl: '/usine/DSC_1476.jpg', title: 'Lakeside Cabin' },
+  { id: 3, imageUrl: '/usine/DSC_1464.jpg', title: 'Sunlight Through Forest' },
+  { id: 4, imageUrl: '/usine/DSC_1277.jpg', title: 'Dramatic Mountain Peak' },
+  { id: 5, imageUrl: '/usine/DSC_1408.jpg', title: 'Golden Hour on River' },
+  { id: 6, imageUrl: '/usine/DSC_1449.jpg', title: 'Green Rolling Hills' },
+  { id: 7, imageUrl: '/usine/DSC_1384.jpg', title: 'Waterfall Oasis' },
+  { id: 8, imageUrl: '/usine/DSC_1654.jpg', title: 'Crashing Ocean Waves' },
+  { id: 9, imageUrl: '/usine/DSC_1640.jpg', title: 'Beach Sunset' },
+  { id: 10, imageUrl: '/usine/DSC_1469.jpg', title: 'Path in the Woods' },
+  { id: 11, imageUrl: '/usine/DSC_2122.jpg', title: 'Colorful Hot Air Balloons' },
+  { id: 12, imageUrl: '/usine/DSC_1516.jpg', title: 'Starry Night Sky' },
+];
+
+// --- GridItem Component ---
+const GridItem: React.FC<GridItemProps> = ({ item }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <motion.div
+      className="mb-4 break-inside-avoid relative cursor-pointer"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      whileHover={{ y: -5 }}
+      transition={{ type: 'spring', stiffness: 300 }}
+    >
+      <img
+        src={item.imageUrl}
+        alt={item.title}
+        className="w-full h-auto rounded-xl shadow-lg"
+        onError={(e) => {
+          const target = e.target as HTMLImageElement;
+          target.onerror = null;
+          target.src = `https://placehold.co/400x300/fecaca/333333?text=Image+Not+Found`;
+        }}
+      />
+      <AnimatePresence>
+        {isHovered && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-xl"
+          >
+            <div className="p-4 h-full flex flex-col justify-between">
+                <div className="flex justify-start gap-3">
+                    <motion.button whileHover={{ scale: 1.1 }} className="p-2 bg-black/30 rounded-lg backdrop-blur-sm group">
+                     
+                    </motion.button>
+                </div>
+
+                <p className="text-white font-bold text-base truncate">{item.title}</p>
+            </div>
+          </motion.div>
+
+        )}
+      </AnimatePresence>
+    </motion.div>
+  );
+};
+
+// --- MasonryGrid Component ---
+const MasonryGrid: React.FC<MasonryGridProps> = ({ items }) => {
+  return (
+    <div
+      className="columns-1 gap-6 sm:columns-2 lg:columns-3 xl:columns-4"
+      style={{ columnWidth: '280px' }}
+    >
+      {items.map((item) => (
+        <GridItem key={item.id} item={item} />
+      ))}
+    </div>
+  );
+};
+
+
+// --- Main App Component ---
+export  function Masonary() {
+  return (
+    <div className="font-sans transition-colors">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <main>
+          <MasonryGrid items={initialItems} />
+        </main>
+      </div>
+    </div>
+  );
+}

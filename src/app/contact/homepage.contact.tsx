@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, Clock, Send, User, MessageSquare, Sparkles } from 'lucide-react';
+import emailjs from 'emailjs-com';
+
 
 const contactInfo = [
   {
@@ -65,10 +67,48 @@ export default function ContactPage() {
     });
   };
 
-  const handleSubmit = () => {
-    console.log('Form submitted:', formData);
-    alert('Message envoyé ! Nous vous contacterons bientôt.');
+ const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault(); // Empêche le rechargement de la page
+
+  const templateParams = {
+    name: formData.name,
+    email: formData.email,
+    phone: formData.phone,
+    subject: formData.subject,
+    message: formData.message,
+    time: new Date().toLocaleString(),
   };
+
+  try {
+    // 1️⃣ Envoi au propriétaire du site
+    await emailjs.send(
+      'service_otp6u0m',          // Remplace par ton Service ID
+      'template_4f7uekp',      // ID du template Contact Us
+      templateParams,
+      '-MbXiIBxYVOOUtkcV'           // Remplace par ta clé publique
+    );
+
+    // 2️⃣ Envoi de la réponse automatique à l'utilisateur
+    await emailjs.send(
+      'service_otp6u0m',
+      'template_fczt6mm',      // ID du template Auto-Reply
+      templateParams,
+      '-MbXiIBxYVOOUtkcV'
+    );
+
+    // ✅ Message de succès dans le DOM
+    alert('Votre message a été envoyé avec succès ! Vous recevrez une confirmation par email.');
+
+    // Optionnel : reset du formulaire
+    setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+
+  } catch (error) {
+    console.error('Erreur lors de l’envoi :', error);
+    alert('Une erreur est survenue lors de l’envoi. Veuillez réessayer.');
+  }
+};
+
+
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -224,7 +264,7 @@ export default function ContactPage() {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="text-xl md:text-2xl lg:text-3xl text-center max-w-4xl font-medium drop-shadow-lg mb-8"
           >
-            Nous sommes là pour répondre à toutes vos questions sur nos craies de qualité supérieure. 
+            Nous sommes là pour répondre à toutes vos
             <span className="block mt-2 text-lime-200 font-bold">
               Contactez Faso Craie dès aujourd&apos;hui !
             </span>
@@ -451,64 +491,65 @@ export default function ContactPage() {
             </motion.div>
 
             {/* Carte et informations supplémentaires */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="space-y-6"
-            >
-              <div className="bg-white rounded-3xl p-6 shadow-2xl border-2 border-gray-100">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center">
-                    <MapPin className="w-6 h-6 text-white" />
-                  </div>
-                  <h3 className="text-3xl font-bold text-gray-900">
-                    Notre emplacement
-                  </h3>
-                </div>
-                
-                {/* Carte Google Maps */}
-                <div className="rounded-2xl overflow-hidden shadow-lg h-96 bg-gray-100 flex items-center justify-center border-2 border-gray-200">
-                  <div className="text-center p-8">
-                    <MapPin className="w-16 h-16 text-green-500 mx-auto mb-4" />
-                    <p className="text-gray-700 font-semibold text-lg">
-                      Zone Industrielle de Kossodo
-                    </p>
-                    <p className="text-gray-600">
-                      Secteur 30, Ouagadougou, Burkina Faso
-                    </p>
-                  </div>
-                </div>
-              </div>
+<motion.div
+  initial={{ opacity: 0, x: 30 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.6 }}
+  className="space-y-6"
+>
+  <div className="bg-white rounded-3xl p-6 shadow-2xl border-2 border-gray-100">
+    <div className="flex items-center gap-3 mb-6">
+      <div className="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center">
+        <MapPin className="w-6 h-6 text-white" />
+      </div>
+      <h3 className="text-3xl font-bold text-gray-900">
+        Notre emplacement
+      </h3>
+    </div>
+    
+    {/* Carte Google Maps */}
+    <div className="rounded-2xl overflow-hidden shadow-lg h-96 border-2 border-gray-200">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3914.68133671937!2d-4.318629125189557!3d11.137093689034428!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xe34fdc7cd83c697%3A0x3faca76f7a8480e!2sFaso%20craie!5e0!3m2!1sfr!2sbf!4v1761477786991!5m2!1sfr!2sbf"
+        width="100%"
+        height="100%"
+        style={{ border: 0 }}
+        allowFullScreen
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+        title="Faso craie location on Google Maps"
+      ></iframe>
+    </div>
+  </div>
 
-              {/* Section Suivez-nous */}
-              <div className="bg-white rounded-3xl p-6 shadow-xl border-2 border-gray-100">
-                <h4 className="text-2xl font-bold text-gray-900 mb-4">
-                  Suivez-nous
-                </h4>
-                <p className="text-gray-700 mb-4 font-medium">
-                  Restez connectés avec nous sur les réseaux sociaux pour suivre nos actualités et innovations.
-                </p>
-                <div className="flex gap-3">
-                  {[
-                    { name: 'Facebook', color: 'bg-blue-600 hover:bg-blue-700' },
-                    { name: 'LinkedIn', color: 'bg-blue-700 hover:bg-blue-800' },
-                    { name: 'Instagram', color: 'bg-pink-600 hover:bg-pink-700' }
-                  ].map((social, i) => (
-                    <motion.button
-                      key={i}
-                      whileHover={{ scale: 1.05, y: -2 }}
-                      whileTap={{ scale: 0.95 }}
-                      className={`flex-1 ${social.color} text-white font-semibold py-3 rounded-xl transition-all shadow-lg hover:shadow-xl`}
-                    >
-                      {social.name}
-                    </motion.button>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          </div>
+  {/* Section Suivez-nous */}
+  <div className="bg-white rounded-3xl p-6 shadow-xl border-2 border-gray-100">
+    <h4 className="text-2xl font-bold text-gray-900 mb-4">
+      Suivez-nous
+    </h4>
+    <p className="text-gray-700 mb-4 font-medium">
+      Restez connectés avec nous sur les réseaux sociaux pour suivre nos actualités et innovations.
+    </p>
+    <div className="flex gap-3">
+      {[
+        { name: 'Facebook', color: 'bg-blue-600 hover:bg-blue-700' },
+        { name: 'LinkedIn', color: 'bg-blue-700 hover:bg-blue-800' },
+        { name: 'Instagram', color: 'bg-pink-600 hover:bg-pink-700' }
+      ].map((social, i) => (
+        <motion.button
+          key={i}
+          whileHover={{ scale: 1.05, y: -2 }}
+          whileTap={{ scale: 0.95 }}
+          className={`flex-1 ${social.color} text-white font-semibold py-3 rounded-xl transition-all shadow-lg hover:shadow-xl`}
+        >
+          {social.name}
+        </motion.button>
+      ))}
+    </div>
+  </div>
+</motion.div>
+         </div>
         </div>
       </section>
     </div>
