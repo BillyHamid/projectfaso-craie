@@ -37,7 +37,7 @@ import { TracingBeam } from "../components/ui/tracing-beam";
 import { TextGenerateEffect } from "../components/ui/text-generate-effect";
 import { easeOut } from "framer-motion";
 
-import { Heart, Lightbulb, GraduationCap } from 'lucide-react';
+import { Heart } from 'lucide-react';
 
 import { Factory, BookOpen, Globe2 } from 'lucide-react';
 
@@ -65,7 +65,7 @@ export default function NavbarDemo() {
     },
     {
       name: "Nos Produits",
-      link: "/products",
+      link: "/product",
     },
     {
       name: "Contactez-nous",
@@ -842,32 +842,6 @@ const dummyContent = [
 
 // mission
 
-const valeurs = [
-  {
-    icon: Heart,
-    title: "Fierté Nationale",
-    description: "Nous sommes fiers de contribuer au développement du Burkina Faso en produisant localement des craies de qualité internationale.",
-    color: "from-green-400 to-green-600",
-    bgColor: "bg-green-50",
-    iconBg: "bg-green-500"
-  },
-  {
-    icon: Lightbulb,
-    title: "Innovation Locale",
-    description: "Notre approche innovante nous permet de créer des produits adaptés aux besoins spécifiques de nos écoles.",
-    color: "from-yellow-400 to-yellow-600",
-    bgColor: "bg-yellow-50",
-    iconBg: "bg-yellow-500"
-  },
-  {
-    icon: GraduationCap,
-    title: "Engagement Jeunesse",
-    description: "Nous soutenons l'éducation et l'entrepreneuriat des jeunes pour construire l'avenir du Burkina Faso.",
-    color: "from-blue-400 to-blue-600",
-    bgColor: "bg-blue-50",
-    iconBg: "bg-blue-500"
-  }
-];
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -1291,7 +1265,7 @@ const ReviewCard = ({
       )}
     >
       <div className="flex flex-row items-center gap-2">
-        <img className="rounded-full" width="32" height="32" alt="" src={img} />
+        <Image className="rounded-full" width="32" height="32" alt="" src={img} />
         <div className="flex flex-col">
           <figcaption className="text-sm font-medium dark:text-white">
             {name}
@@ -1493,8 +1467,6 @@ export function ContainerTextFlipDemo() {
 }
 
 
-
-
 export function HeroVideoDialogDemo() {
   return (
     <div className="relative flex justify-center items-center gap-6 pb-10">
@@ -1503,9 +1475,9 @@ export function HeroVideoDialogDemo() {
         <HeroVideoDialog
           className="block dark:hidden"
           animationStyle="from-center"
-          videoSrc="/faso.mp4"
-          thumbnailSrc="/47e004f1-a06e-4be1-a9be-b1de8e17bd5c.jpg"
-          thumbnailAlt="Hero Video"
+  videoSrc="/faso.mp4"
+  thumbnailSrc="/47e004f1-a06e-4be1-a9be-b1de8e17bd5c.jpg"
+  thumbnailAlt="Hero Video"
 
         />
         <HeroVideoDialog
@@ -1614,7 +1586,7 @@ const GridItem: React.FC<GridItemProps> = ({ item }) => {
       whileHover={{ y: -5 }}
       transition={{ type: 'spring', stiffness: 300 }}
     >
-      <img
+      <Image
         src={item.imageUrl}
         alt={item.title}
         className="w-full h-auto rounded-xl shadow-lg"
