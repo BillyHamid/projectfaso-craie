@@ -1323,7 +1323,7 @@ export function MarqueeDemo() {
 const navigationLinks = [
   { name: 'Accueil', href: '/' },
   { name: 'À propos', href: '/about' },
-  { name: 'Nos produits', href: '#produits' },
+  { name: 'Nos produits', href: '/product' },
   { name: 'Contact', href: '/contact' },
 ];
 
