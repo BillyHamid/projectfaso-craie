@@ -386,14 +386,15 @@ export default function ContactPage() {
               transition={{ duration: 0.6 }}
               className="bg-white rounded-3xl p-8 shadow-2xl border-2 border-purple-100"
             >
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
-                  <MessageSquare className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                  Envoyez-nous un message
-                </h3>
-              </div>
+             <div className="flex items-center gap-3 mb-6">
+  <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-700 rounded-xl flex items-center justify-center">
+    <MessageSquare className="w-6 h-6 text-white" />
+  </div>
+  <h3 className="text-3xl font-bold text-black">
+    Envoyez-nous un message
+  </h3>
+</div>
+
               
               <div className="space-y-6">
                 <div>

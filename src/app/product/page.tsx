@@ -1,5 +1,7 @@
+"use client";
+
 import NavbarDemo, { Footer } from "../homesPage";
-import { CardsSection } from "./CardsSection.product";
+import AppCard from "./CardsSection.product";
 import HeroSaaS2, { ConsommonsBurkinabe } from "./homepage.product";
 
 
@@ -9,7 +11,7 @@ const ProductPage = () => {
     <div>
       <NavbarDemo />
       <HeroSaaS2 />
-     <CardsSection />
+      <AppCard />
      <ConsommonsBurkinabe />
      <Footer />
     </div>

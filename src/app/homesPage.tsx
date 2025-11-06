@@ -19,6 +19,7 @@ import { cn } from "@/lib/utils";
 import { HeroHighlight, Highlight } from "../components/ui/hero-highlight";
 import { BentoGrid, BentoGridItem } from "../components/ui/bento-grid";
 import {
+  IconArrowLeft,
   IconBoxAlignRightFilled,
   IconClipboardCopy,
   IconFileBroken,
@@ -49,6 +50,7 @@ import { HeroVideoDialog } from "../components/ui/hero-video-dialog";
 import { VideoText } from "@/components/ui/video-text";
 
 import {  AnimatePresence } from 'framer-motion';
+
 
 
 
@@ -197,17 +199,32 @@ export function HeroHighlightDemo() {
 
 
 export function BentoGridThirdDemo() {
+  const [showMasonry, setShowMasonry] = useState(false);
+
+  if (showMasonry) {
+    return <Masonary onBack={() => setShowMasonry(false)} />;
+  }
+
   return (
-    <BentoGrid className="max-w-4xl mx-auto md:auto-rows-[20rem]">
+    <BentoGrid className="max-w-5xl mx-auto md:auto-rows-[20rem]">
       {items.map((item, i) => (
-        <BentoGridItem
+        <div
           key={i}
-          title={item.title}
-          description={item.description}
-          header={item.header}
-          className={cn ("[&>p:text-lg]", item.className)}
-          icon={item.icon}
-        />
+          onClick={() => {
+            if (item.title === "Présentation de l'usine") {
+              setShowMasonry(true);
+            }
+          }}
+          className={item.title === "Présentation de l'usine" ? "cursor-pointer" : ""}
+        >
+          <BentoGridItem
+            title={item.title}
+            description={item.description}
+            header={item.header}
+            className={cn("[&>p:text-lg]", item.className)}
+            icon={item.icon}
+          />
+        </div>
       ))}
     </BentoGrid>
   );
@@ -1556,40 +1573,39 @@ interface MasonryGridProps {
   items: MasonryItem[];
 }
 
-
-
-// --- Simplified mock data (no author info) ---
-const initialItems = [
-  { id: 1, imageUrl: '/usine/DSC_1537.jpg', title: 'Misty Mountain Valley' },
-  { id: 2, imageUrl: '/usine/DSC_1476.jpg', title: 'Lakeside Cabin' },
-  { id: 3, imageUrl: '/usine/DSC_1464.jpg', title: 'Sunlight Through Forest' },
-  { id: 4, imageUrl: '/usine/DSC_1277.jpg', title: 'Dramatic Mountain Peak' },
-  { id: 5, imageUrl: '/usine/DSC_1408.jpg', title: 'Golden Hour on River' },
-  { id: 6, imageUrl: '/usine/DSC_1449.jpg', title: 'Green Rolling Hills' },
-  { id: 7, imageUrl: '/usine/DSC_1384.jpg', title: 'Waterfall Oasis' },
-  { id: 8, imageUrl: '/usine/DSC_1654.jpg', title: 'Crashing Ocean Waves' },
-  { id: 9, imageUrl: '/usine/DSC_1640.jpg', title: 'Beach Sunset' },
-  { id: 10, imageUrl: '/usine/DSC_1469.jpg', title: 'Path in the Woods' },
-  { id: 11, imageUrl: '/usine/DSC_2122.jpg', title: 'Colorful Hot Air Balloons' },
-  { id: 12, imageUrl: '/usine/DSC_1516.jpg', title: 'Starry Night Sky' },
+// --- Données images ---
+const initialItems: MasonryItem[] = [
+  { id: 1, imageUrl: "/usine/DSC_1537.jpg", title: "Misty Mountain Valley" },
+  { id: 2, imageUrl: "/usine/DSC_1476.jpg", title: "Lakeside Cabin" },
+  { id: 3, imageUrl: "/usine/DSC_1464.jpg", title: "Sunlight Through Forest" },
+  { id: 4, imageUrl: "/usine/DSC_1277.jpg", title: "Dramatic Mountain Peak" },
+  { id: 5, imageUrl: "/usine/DSC_1408.jpg", title: "Golden Hour on River" },
+  { id: 6, imageUrl: "/usine/DSC_1449.jpg", title: "Green Rolling Hills" },
+  { id: 7, imageUrl: "/usine/DSC_1384.jpg", title: "Waterfall Oasis" },
+  { id: 8, imageUrl: "/usine/DSC_1654.jpg", title: "Crashing Ocean Waves" },
+  { id: 9, imageUrl: "/usine/DSC_1640.jpg", title: "Beach Sunset" },
+  { id: 10, imageUrl: "/usine/DSC_1469.jpg", title: "Path in the Woods" },
+  { id: 11, imageUrl: "/usine/DSC_2122.jpg", title: "Colorful Hot Air Balloons" },
+  { id: 12, imageUrl: "/usine/DSC_1516.jpg", title: "Starry Night Sky" },
 ];
 
-// --- GridItem Component ---
+// --- Composants Masonary ---
 const GridItem: React.FC<GridItemProps> = ({ item }) => {
   const [isHovered, setIsHovered] = useState(false);
-
   return (
     <motion.div
       className="mb-4 break-inside-avoid relative cursor-pointer"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       whileHover={{ y: -5 }}
-      transition={{ type: 'spring', stiffness: 300 }}
+      transition={{ type: "spring", stiffness: 300 }}
     >
       <Image
         src={item.imageUrl}
         alt={item.title}
-        className="w-full h-auto rounded-xl shadow-lg"
+        width={400}
+        height={300}
+        className="w-full h-auto rounded-xl shadow-lg object-cover"
         onError={(e) => {
           const target = e.target as HTMLImageElement;
           target.onerror = null;
@@ -1604,43 +1620,42 @@ const GridItem: React.FC<GridItemProps> = ({ item }) => {
             exit={{ opacity: 0 }}
             className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-xl"
           >
-            <div className="p-4 h-full flex flex-col justify-between">
-                <div className="flex justify-start gap-3">
-                    <motion.button whileHover={{ scale: 1.1 }} className="p-2 bg-black/30 rounded-lg backdrop-blur-sm group">
-                     
-                    </motion.button>
-                </div>
-
-                <p className="text-white font-bold text-base truncate">{item.title}</p>
+            <div className="p-4 h-full flex flex-col justify-end">
+              <p className="text-white font-bold text-base truncate">
+                {item.title}
+              </p>
             </div>
           </motion.div>
-
         )}
       </AnimatePresence>
     </motion.div>
   );
 };
 
-// --- MasonryGrid Component ---
-const MasonryGrid: React.FC<MasonryGridProps> = ({ items }) => {
-  return (
-    <div
-      className="columns-1 gap-6 sm:columns-2 lg:columns-3 xl:columns-4"
-      style={{ columnWidth: '280px' }}
-    >
-      {items.map((item) => (
-        <GridItem key={item.id} item={item} />
-      ))}
-    </div>
-  );
-};
-
-
-// --- Main App Component ---
-export  function Masonary() {
+const MasonryGrid: React.FC<MasonryGridProps> = ({ items }) => (
+  <div className="columns-1 gap-6 sm:columns-2 lg:columns-3 xl:columns-4">
+    {items.map((item) => (
+      <GridItem key={item.id} item={item} />
+    ))}
+  </div>
+);
+function Masonary({ onBack }: { onBack: () => void }) {
   return (
     <div className="font-sans transition-colors">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="flex justify-between items-center mb-6">
+          <motion.button
+            onClick={onBack}
+            whileHover={{ scale: 1.05 }}
+            className="flex items-center gap-2 bg-gradient-to-r from-pink-500 to-violet-500 text-white px-4 py-2 rounded-full shadow-md"
+          >
+            <IconArrowLeft size={18} />
+            <span>Retour</span>
+          </motion.button>
+          <h2 className="text-xl font-semibold text-neutral-800 dark:text-neutral-200">
+            Présentation de l’usine
+          </h2>
+        </div>
         <main>
           <MasonryGrid items={initialItems} />
         </main>
