@@ -5,10 +5,10 @@ import { ArrowRight, Phone, Sparkles } from 'lucide-react';
 
 export default function HeroSaaS2() {
   const features = [
-    "🏭 Production automatisée de craies",
-    "🌿 Craies écologiques et sans poussière",
-    "👷 Formation assistée à la production",
-    "📊 Contrôle qualité",
+    " Production automatisée de craies",
+    " Craies écologiques et sans poussière",
+    " Formation assistée à la production",
+    " Contrôle qualité",
   ];
 
   return (
@@ -19,13 +19,14 @@ export default function HeroSaaS2() {
           <div className="w-full lg:w-1/2 order-1 lg:order-1">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
               Découvrons <br />
-              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-violet-600 via-fuchsia-500 to-pink-600 bg-clip-text text-transparent">
+  nos produits
+</span> <br />
+              <span className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
                 ensemble
               </span>
               <br />
-              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent">
-                nos produits
-              </span>
+              
             </h1>
 
             <div className="grid grid-cols-2 gap-4 mb-8">
