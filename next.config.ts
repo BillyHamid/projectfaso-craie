@@ -25,6 +25,10 @@ const nextConfig = {
         hostname: 'avatar.vercel.sh',
         // Vous pouvez aussi ajouter 'pathname: '/**'' si vous voulez être encore plus précis.
       },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
     ],
   },
 };

@@ -66,6 +66,10 @@ export default function NavbarDemo() {
       link: "/about",
     },
     {
+      name: "File d'actualité",
+      link: "/actuality",
+    },
+    {
       name: "Nos Produits",
       link: "/product",
     },
