@@ -11,8 +11,8 @@ const contactInfo = [
     icon: MapPin,
     title: "Adresse de l'usine",
     details: [
-      "Zone Industrielle de Kossodo",
-      "Secteur 30, Ouagadougou",
+      "zone industrielle Kodeni, ",
+      "vers le port sec de Bobo",
       "Burkina Faso"
     ],
     gradient: "from-green-500 to-green-600",
@@ -26,7 +26,7 @@ const contactInfo = [
       "+226 70 25 36 42"
     ],
     gradient: "from-green-500 to-green-600",
-    bgGradient: "from-green-50 to-green-100"
+    bgGradient: "from-green-50 to-green-100" 
   },
   {
     icon: Mail,

@@ -101,13 +101,13 @@ const news: Article[] = [
     category: 'Innovation',
     categoryColor: 'bg-green-600',
     images: [
-      'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=1200&h=600&fit=crop'
+      '/actu6.jpg',
+      '/actu6-1.jpg'
     ],
-    date: '8 Janvier 2024',
+    date: '11 Novembre 2025',
     readTime: '5 min',
-    title: 'Lancement de notre nouvelle gamme de craies colorées',
-    excerpt: "Faso Craie innove avec une nouvelle gamme de craies colorées fabriquées à partir de matériaux 100% naturels et respectueux de l'environnement...",
+    title: 'FASO CRAIE a eu l’immense honneur d’accueillir au sein de son unité de production : •𝐃𝐫 𝐀𝐛𝐨𝐮𝐛𝐚𝐤𝐚𝐫 𝐍𝐀𝐂𝐀𝐍𝐀𝐁𝐎, 𝐌𝐢𝐧𝐢𝐬𝐭𝐫𝐞 𝐝𝐞 𝐥’𝐄́𝐜𝐨𝐧𝐨𝐦𝐢𝐞 𝐞𝐭 𝐝𝐞𝐬 𝐅𝐢𝐧𝐚𝐧𝐜𝐞𝐬, •𝐉𝐚𝐜𝐪𝐮𝐞𝐬 𝐒𝐨𝐬𝐭𝐡𝐞̀𝐧𝐞 𝐃𝐈𝐍𝐆𝐀𝐑𝐀, 𝐌𝐢𝐧𝐢𝐬𝐭𝐫𝐞 𝐝𝐞 𝐥’𝐄́𝐝𝐮𝐜𝐚𝐭𝐢𝐨𝐧 𝐝𝐞 𝐁𝐚𝐬𝐞, 𝐝𝐞 𝐥’𝐀𝐥𝐩𝐡𝐚𝐛𝐞́𝐭𝐢𝐬𝐚𝐭𝐢𝐨𝐧 𝐞𝐭 𝐝𝐞 𝐥𝐚 𝐏𝐫𝐨𝐦𝐨𝐭𝐢𝐨𝐧 𝐝𝐞𝐬 𝐋𝐚𝐧𝐠𝐮𝐞𝐬 𝐍𝐚𝐭𝐢𝐨𝐧𝐚𝐥𝐞𝐬.',
+    excerpt: "Cette visite constitue un moment fort pour notre entreprise, véritable fierté du savoir-faire ...",
     author: 'Département R&D',
     fullContent: ''
   }

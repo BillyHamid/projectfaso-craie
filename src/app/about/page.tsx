@@ -1,4 +1,4 @@
-import NavbarDemo, { ColourfulTextDemo, FollowingPointerDemo,   Footer,      NotreMission,   TracingBeamDemo, VideoTextDemo } from "../homesPage";
+import NavbarDemo, { ColourfulTextDemo, ExpandableCardDemo, FollowingPointerDemo,   Footer,      NotreMission,   TracingBeamDemo, VideoTextDemo } from "../homesPage";
 
 
 const AboutPage = () => {
@@ -10,6 +10,7 @@ const AboutPage = () => {
       <TracingBeamDemo />
       <FollowingPointerDemo />
       <VideoTextDemo />
+      <ExpandableCardDemo />
       
       <Footer />
     </div>
