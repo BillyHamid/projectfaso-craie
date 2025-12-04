@@ -133,221 +133,233 @@ Une rencontre inspirante qui témoigne de la volonté de l’entreprise d’acco
       '/actu6.jpg',
       '/actu6-1.jpg',
       '/actu6-2.jpg'
-export default function ArticleDetailPage() {
-    const router = useRouter();
-    const params = useParams();
-    const articleId = parseInt(params?.id as string);
-    const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
-
-    const article = news.find((item) => item.id === articleId);
-    const images = article?.images ?? [];
-    const totalImages = images.length;
-    const activeImage = images[currentImageIndex] ?? images[0] ?? '/banner4.jpg';
-
-    useEffect(() => {
-  if (!article && articleId) {
-    router.push('/actuality');
+    ],
+    date: '8 Janvier 2024',
+    readTime: '5 min',
+    title: 'FASO CRAIE a eu l’immense honneur d’accueillir au sein de son unité de production : •𝐃𝐫 𝐀𝐛𝐨𝐮𝐛𝐚𝐤𝐚𝐫 𝐍𝐀𝐂𝐀𝐍𝐀𝐁𝐎, 𝐌𝐢𝐧𝐢𝐬𝐭𝐫𝐞 𝐝𝐞 𝐥’𝐄́𝐜𝐨𝐧𝐨𝐦𝐢𝐞 𝐞𝐭 𝐝𝐞𝐬 𝐅𝐢𝐧𝐚𝐧𝐜𝐞𝐬, •𝐉𝐚𝐜𝐪𝐮𝐞𝐬 𝐒𝐨𝐬𝐭𝐡𝐞̀𝐧𝐞 𝐃𝐈𝐍𝐆𝐀𝐑𝐀, 𝐌𝐢𝐧𝐢𝐬𝐭𝐫𝐞 𝐝𝐞 𝐥’𝐄́𝐝𝐮𝐜𝐚𝐭𝐢𝐨𝐧 𝐝𝐞 𝐁𝐚𝐬𝐞, 𝐝𝐞 𝐥’𝐀𝐥𝐩𝐡𝐚𝐛𝐞́𝐭𝐢𝐬𝐚𝐭𝐢𝐨𝐧 𝐞𝐭 𝐝𝐞 𝐥𝐚 𝐏𝐫𝐨𝐦𝐨𝐭𝐢𝐨𝐧 𝐝𝐞𝐬 𝐋𝐚𝐧𝐠𝐮𝐞𝐬 𝐍𝐚𝐭𝐢𝐨𝐧𝐚𝐥𝐞𝐬.',
+    excerpt: "Cette visite constitue un moment fort pour notre entreprise, véritable fierté du savoir-faire ...",
+    author: 'Département R&D',
+    fullContent: "Dans le cadre de la 22e Rencontre État–Secteur Privé, FASO CRAIE a eu l’immense honneur d’accueillir au sein de son unité de production :•𝐃𝐫 𝐀𝐛𝐨𝐮𝐛𝐚𝐤𝐚𝐫 𝐍𝐀𝐂𝐀𝐍𝐀𝐁𝐎, 𝐌𝐢𝐧𝐢𝐬𝐭𝐫𝐞 𝐝𝐞 𝐥’𝐄́𝐜𝐨𝐧𝐨𝐦𝐢𝐞 𝐞𝐭 𝐝𝐞𝐬 𝐅𝐢𝐧𝐚𝐧𝐜𝐞𝐬,•𝐉𝐚𝐜𝐪𝐮𝐞𝐬 𝐒𝐨𝐬𝐭𝐡𝐞̀𝐧𝐞 𝐃𝐈𝐍𝐆𝐀𝐑𝐀, 𝐌𝐢𝐧𝐢𝐬𝐭𝐫𝐞 𝐝𝐞 𝐥’𝐄́𝐝𝐮𝐜𝐚𝐭𝐢𝐨𝐧 𝐝𝐞 𝐁𝐚𝐬𝐞, 𝐝𝐞 𝐥’𝐀𝐥𝐩𝐡𝐚𝐛𝐞́𝐭𝐢𝐬𝐚𝐭𝐢𝐨𝐧 𝐞𝐭 𝐝𝐞 𝐥𝐚 𝐏𝐫𝐨𝐦𝐨𝐭𝐢𝐨𝐧 𝐝𝐞𝐬 𝐋𝐚𝐧𝐠𝐮𝐞𝐬 𝐍𝐚𝐭𝐢𝐨𝐧𝐚𝐥𝐞𝐬.Cette visite constitue un moment fort pour notre entreprise, véritable fierté du savoir- faire burkinabèau service de l’éducation nationale.Elle illustre la volonté du gouvernement de soutenir la production locale et d’encourager les acteurs engagés dans la transformation structurelle de notre économie.Nous exprimons notre profonde gratitude à ces deux hautes autorités pour leur écoute, leur disponibilité et leurs encouragements.Chez FASO CRAIE, nous restons déterminés à poursuivre notre mission : produire une craie 100 % burkinabè, de qualité, respectueuse de l’environnement et au service de nos écoles.🇧🇫"
   }
-}, [article, articleId, router]);
+];
 
-const nextImage = useCallback(() => {
-  if (totalImages === 0) return;
-  setCurrentImageIndex((prev) => (prev === totalImages - 1 ? 0 : prev + 1));
-}, [totalImages]);
 
-const prevImage = useCallback(() => {
-  if (totalImages === 0) return;
-  setCurrentImageIndex((prev) => (prev === 0 ? totalImages - 1 : prev - 1));
-}, [totalImages]);
 
-useEffect(() => {
-  const handleKeyDown = (event: KeyboardEvent) => {
-    if (event.key === 'Escape') {
-      router.back();
-      return;
+export default function ArticleDetailPage() {
+  const router = useRouter();
+  const params = useParams();
+  const articleId = parseInt(params?.id as string);
+  const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
+
+  const article = news.find((item) => item.id === articleId);
+  const images = article?.images ?? [];
+  const totalImages = images.length;
+  const activeImage = images[currentImageIndex] ?? images[0] ?? '/banner4.jpg';
+
+  useEffect(() => {
+    if (!article && articleId) {
+      router.push('/actuality');
     }
+  }, [article, articleId, router]);
 
-    if (totalImages > 1 && event.key === 'ArrowRight') {
-      nextImage();
-    } else if (totalImages > 1 && event.key === 'ArrowLeft') {
-      prevImage();
-    }
-  };
+  const nextImage = useCallback(() => {
+    if (totalImages === 0) return;
+    setCurrentImageIndex((prev) => (prev === totalImages - 1 ? 0 : prev + 1));
+  }, [totalImages]);
 
-  window.addEventListener('keydown', handleKeyDown);
-  return () => {
-    window.removeEventListener('keydown', handleKeyDown);
-  };
-}, [nextImage, prevImage, router, totalImages]);
+  const prevImage = useCallback(() => {
+    if (totalImages === 0) return;
+    setCurrentImageIndex((prev) => (prev === 0 ? totalImages - 1 : prev - 1));
+  }, [totalImages]);
 
-if (!article) {
-  return null;
-}
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        router.back();
+        return;
+      }
 
-return (
-  <div className="fixed inset-0 w-full h-full bg-white overflow-y-auto">
-    {/* Navbar */}
-    <NavbarDemo />
+      if (totalImages > 1 && event.key === 'ArrowRight') {
+        nextImage();
+      } else if (totalImages > 1 && event.key === 'ArrowLeft') {
+        prevImage();
+      }
+    };
 
-    {/* Hero Banner avec titre de l'article - Sans photo */}
-    <motion.section
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.6 }}
-      className="relative py-20 w-full overflow-hidden bg-gradient-to-br from-gray-900 to-gray-800"
-    >
-      {/* Contenu centré */}
-      <div className="relative h-full flex flex-col items-center justify-center px-4 text-center">
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [nextImage, prevImage, router, totalImages]);
+
+  if (!article) {
+    return null;
+  }
+
+  return (
+    <div className="fixed inset-0 w-full h-full bg-white overflow-y-auto">
+      {/* Navbar */}
+      <NavbarDemo />
+
+      {/* Hero Banner avec titre de l'article - Sans photo */}
+      <motion.section
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6 }}
+        className="relative py-20 w-full overflow-hidden bg-gradient-to-br from-gray-900 to-gray-800"
+      >
+        {/* Contenu centré */}
+        <div className="relative h-full flex flex-col items-center justify-center px-4 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="max-w-4xl"
+          >
+            <span className={`inline-block ${article.categoryColor} text-white px-4 py-1.5 rounded-full text-sm font-semibold mb-6`}>
+              {article.category}
+            </span>
+            <h1 className="text-xl md:text-3xl lg:text-4xl font-bold text-white leading-tight mb-6">
+              {article.title}
+            </h1>
+
+            {/* Méta-données dans la bannière */}
+            <div className="flex items-center justify-center gap-6 text-white/90 text-sm sm:text-base flex-wrap">
+              <div className="flex items-center gap-2">
+                <User size={18} />
+                <span>{article.author}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Calendar size={18} />
+                <span>{article.date}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Clock size={18} />
+                <span>{article.readTime} de lecture</span>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </motion.section>
+
+      {/* Contenu principal style "Card" */}
+      <main className="max-w-5xl mx-auto px-4 py-12 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="max-w-4xl"
+          transition={{ delay: 0.3 }}
+          className="bg-white rounded-2xl shadow-xl overflow-hidden"
         >
-          <span className={`inline-block ${article.categoryColor} text-white px-4 py-1.5 rounded-full text-sm font-semibold mb-6`}>
-            {article.category}
-          </span>
-          <h1 className="text-xl md:text-3xl lg:text-4xl font-bold text-white leading-tight mb-6">
-            {article.title}
-          </h1>
+          {/* Image principale (Carousel) */}
+          <div className="relative w-full aspect-video max-h-[500px] bg-gray-100">
+            <Image
+              src={activeImage}
+              alt={article.title}
+              fill
+              sizes="100vw"
+              className="object-contain"
+              priority
+            />
 
-          {/* Méta-données dans la bannière */}
-          <div className="flex items-center justify-center gap-6 text-white/90 text-sm sm:text-base flex-wrap">
-            <div className="flex items-center gap-2">
-              <User size={18} />
-              <span>{article.author}</span>
+            {/* Background flouté pour l'esthétique */}
+            <Image
+              src={activeImage}
+              alt=""
+              fill
+              className="object-cover blur-2xl opacity-30 -z-10"
+            />
+
+            {totalImages > 1 && (
+              <>
+                <button
+                  onClick={prevImage}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 backdrop-blur-sm text-white rounded-full p-3 transition-all"
+                  aria-label="Image précédente"
+                >
+                  <ChevronLeft size={24} />
+                </button>
+                <button
+                  onClick={nextImage}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 backdrop-blur-sm text-white rounded-full p-3 transition-all"
+                  aria-label="Image suivante"
+                >
+                  <ChevronRight size={24} />
+                </button>
+                <div className="absolute bottom-4 right-4 bg-black/70 backdrop-blur-sm text-white px-3 py-1.5 rounded-full text-sm font-medium">
+                  {currentImageIndex + 1} / {totalImages}
+                </div>
+              </>
+            )}
+          </div>
+
+          {/* Miniatures */}
+          {totalImages > 1 && (
+            <div className="w-full bg-gray-50 px-6 py-4 border-b border-gray-100 overflow-x-auto">
+              <div className="flex gap-3">
+                {images.map((img, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setCurrentImageIndex(idx)}
+                    className={`flex-shrink-0 w-20 h-14 rounded-lg overflow-hidden border-2 transition-all ${idx === currentImageIndex
+                      ? 'border-green-600 shadow-md scale-105'
+                      : 'border-transparent opacity-60 hover:opacity-100 hover:border-gray-300'
+                      }`}
+                  >
+                    <div className="relative w-full h-full">
+                      <Image
+                        src={img}
+                        alt={`Miniature ${idx + 1}`}
+                        fill
+                        sizes="80px"
+                        className="object-cover"
+                      />
+                    </div>
+                  </button>
+                ))}
+              </div>
             </div>
-            <div className="flex items-center gap-2">
-              <Calendar size={18} />
-              <span>{article.date}</span>
+          )}
+
+          {/* Texte de l'article */}
+          <div className="px-6 md:px-12 py-10">
+            <div className="prose prose-lg max-w-none text-gray-700">
+              {article.fullContent.split('\n\n').filter(Boolean).map((paragraph: string, idx: number) => (
+                <p key={idx} className="leading-relaxed mb-6">
+                  {paragraph}
+                </p>
+              ))}
             </div>
-            <div className="flex items-center gap-2">
-              <Clock size={18} />
-              <span>{article.readTime} de lecture</span>
+          </div>
+
+          {/* Section Affiches Publicitaires */}
+          <div className="px-6 md:px-12 pb-12">
+            <div className="border-t border-gray-100 pt-10">
+              <h2 className="text-2xl font-bold text-gray-800 mb-8 text-center">Découvrez Faso Craie</h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {[
+                  '/banners/rollup-1.jpg',
+                  '/banners/rollup-2.jpg',
+                  '/banners/rollup-3.jpg'
+                ].map((src, index) => (
+                  <div key={index} className="relative aspect-[1/2] w-full rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all hover:scale-[1.02] duration-300 group">
+                    <Image
+                      src={src}
+                      alt={`Affiche Faso Craie ${index + 1}`}
+                      fill
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </motion.div>
-      </div>
-    </motion.section>
-
-    {/* Contenu principal style "Card" */}
-    <main className="max-w-5xl mx-auto px-4 py-12 relative z-10">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3 }}
-        className="bg-white rounded-2xl shadow-xl overflow-hidden"
-      >
-        {/* Image principale (Carousel) */}
-        <div className="relative w-full aspect-video max-h-[500px] bg-gray-100">
-          <Image
-            src={activeImage}
-            alt={article.title}
-            fill
-            sizes="100vw"
-            className="object-contain"
-            priority
-          />
-
-          {/* Background flouté pour l'esthétique */}
-          <Image
-            src={activeImage}
-            alt=""
-            fill
-            className="object-cover blur-2xl opacity-30 -z-10"
-          />
-
-          {totalImages > 1 && (
-            <>
-              <button
-                onClick={prevImage}
-                className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 backdrop-blur-sm text-white rounded-full p-3 transition-all"
-                aria-label="Image précédente"
-              >
-                <ChevronLeft size={24} />
-              </button>
-              <button
-                onClick={nextImage}
-                className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 backdrop-blur-sm text-white rounded-full p-3 transition-all"
-                aria-label="Image suivante"
-              >
-                <ChevronRight size={24} />
-              </button>
-              <div className="absolute bottom-4 right-4 bg-black/70 backdrop-blur-sm text-white px-3 py-1.5 rounded-full text-sm font-medium">
-                {currentImageIndex + 1} / {totalImages}
-              </div>
-            </>
-          )}
-        </div>
-
-        {/* Miniatures */}
-        {totalImages > 1 && (
-          <div className="w-full bg-gray-50 px-6 py-4 border-b border-gray-100 overflow-x-auto">
-            <div className="flex gap-3">
-              {images.map((img, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setCurrentImageIndex(idx)}
-                  className={`flex-shrink-0 w-20 h-14 rounded-lg overflow-hidden border-2 transition-all ${idx === currentImageIndex
-                    ? 'border-green-600 shadow-md scale-105'
-                    : 'border-transparent opacity-60 hover:opacity-100 hover:border-gray-300'
-                    }`}
-                >
-                  <div className="relative w-full h-full">
-                    <Image
-                      src={img}
-                      alt={`Miniature ${idx + 1}`}
-                      fill
-                      sizes="80px"
-                      className="object-cover"
-                    />
-                  </div>
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* Texte de l'article */}
-        <div className="px-6 md:px-12 py-10">
-          <div className="prose prose-lg max-w-none text-gray-700">
-            {article.fullContent.split('\n\n').filter(Boolean).map((paragraph: string, idx: number) => (
-              <p key={idx} className="leading-relaxed mb-6">
-                {paragraph}
-              </p>
-            ))}
-          </div>
-        </div>
-
-        {/* Section Affiches Publicitaires */}
-        <div className="px-6 md:px-12 pb-12">
-          <div className="border-t border-gray-100 pt-10">
-            <h2 className="text-2xl font-bold text-gray-800 mb-8 text-center">Découvrez Faso Craie</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {[
-                '/banners/rollup-1.jpg',
-                '/banners/rollup-2.jpg',
-                '/banners/rollup-3.jpg'
-              ].map((src, index) => (
-                <div key={index} className="relative aspect-[1/2] w-full rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all hover:scale-[1.02] duration-300 group">
-                  <Image
-                    src={src}
-                    alt={`Affiche Faso Craie ${index + 1}`}
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </motion.div>
-    </main>
+      </main>
 
 
 
-  </div >
-);
+    </div >
+  );
 }
 
