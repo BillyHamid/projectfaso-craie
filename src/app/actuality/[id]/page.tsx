@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import { useRouter, useParams } from 'next/navigation';
-import { Calendar, Clock, ChevronRight, ChevronLeft, User, ArrowLeft } from 'lucide-react';
+import { Calendar, Clock, ChevronRight, ChevronLeft, User } from 'lucide-react';
 import { motion } from 'motion/react';
 import NavbarDemo from "../../homesPage";
 

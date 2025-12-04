@@ -219,16 +219,18 @@ export default function Actualite() {
               {/* Grande image horizontale */}
               <div className="relative w-full h-[300px] md:h-[400px] overflow-hidden group bg-gray-100">
                 {/* Background flouté pour remplir l'espace */}
-                <img
+                <Image
                   src={featuredArticle.images[0]}
                   alt=""
                   className="absolute inset-0 w-full h-full object-cover blur-xl opacity-50 scale-110"
+                  fill
                 />
                 {/* Image principale non coupée */}
-                <img
+                <Image
                   src={featuredArticle.images[0]}
                   alt={featuredArticle.title}
                   className="relative w-full h-full object-contain z-10 transition-all duration-700 ease-in-out group-hover:scale-105 group-hover:rotate-1 group-hover:brightness-110"
+                  fill
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out z-20 pointer-events-none" />
               </div>
@@ -284,16 +286,18 @@ export default function Actualite() {
                     {/* Grande image horizontale */}
                     <div className="relative w-full h-[300px] md:h-[400px] overflow-hidden group bg-gray-100">
                       {/* Background flouté pour remplir l'espace */}
-                      <img
+                      <Image
                         src={article.images[0]}
                         alt=""
                         className="absolute inset-0 w-full h-full object-cover blur-xl opacity-50 scale-110"
+                        fill
                       />
                       {/* Image principale non coupée */}
-                      <img
+                      <Image
                         src={article.images[0]}
                         alt={article.title}
                         className="relative w-full h-full object-contain z-10 transition-all duration-700 ease-in-out group-hover:scale-105 group-hover:rotate-1 group-hover:brightness-110"
+                        fill
                       />
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out z-20 pointer-events-none" />
                     </div>
