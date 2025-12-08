@@ -1235,6 +1235,7 @@ export  function NotreMission() {
 const navigationLinks = [
   { name: 'Accueil', href: '/' },
   { name: 'À propos', href: '/about' },
+  { name: "File d'actualité", href: '/actuality' },
   { name: 'Nos produits', href: '/product' },
   { name: 'Contact', href: '/contact' },
 ];

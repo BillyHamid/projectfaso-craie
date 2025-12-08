@@ -13,7 +13,6 @@ const Page = () => {
       <StickyScrollRevealDemo />
       <ContainerTextFlipDemo /> 
       <HeroVideoDialogDemo />
-      
       <Footer />
     </div>
   );
