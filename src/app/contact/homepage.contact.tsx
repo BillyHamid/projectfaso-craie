@@ -22,8 +22,9 @@ const contactInfo = [
     icon: Phone,
     title: "Téléphone",
     details: [
-      "+226 25 36 42 18",
-      "+226 70 25 36 42"
+      "+226 20 95 79 79",
+      "+226 70 42 41 13",
+      "+226 74 71 13 59"
     ],
     gradient: "from-green-500 to-green-600",
     bgGradient: "from-green-50 to-green-100" 
