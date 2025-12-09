@@ -43,8 +43,8 @@ const contactInfo = [
     icon: Clock,
     title: "Horaires d'ouverture",
     details: [
-      "Lundi - Vendredi : 7h30 - 17h30",
-      "Samedi : 8h00 - 12h00",
+      "Lundi - Vendredi : 8h00 - 18h00",
+      "Samedi : 8h00 - 16h00",
       "Dimanche : Fermé"
     ],
     gradient: "from-green-500 to-green-600",
