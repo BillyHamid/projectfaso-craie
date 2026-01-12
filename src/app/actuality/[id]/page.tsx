@@ -29,6 +29,26 @@ const news: Article[] = [
     category: 'Événements',
     categoryColor: 'bg-green-600',
     images: [
+      '/actu7.jpg',
+      '/actu7-1.jpg',
+      '/actu7-2.jpg'
+    ],
+    date: '09 Janvier 2026',
+    readTime: '5 min',
+    title: "𝐌𝐎𝐍𝐒𝐈𝐄𝐔𝐑 𝐋𝐄 𝐌𝐈𝐍𝐈𝐒𝐓𝐑𝐄 𝐃𝐄𝐒 𝐒𝐏𝐎𝐑𝐓𝐒, 𝐃𝐄 𝐋𝐀 𝐉𝐄𝐔𝐍𝐄𝐒𝐒𝐄 𝐄𝐓 𝐃𝐄 𝐋’𝐄𝐌𝐏𝐋𝐎𝐈, 𝐂𝐎𝐏𝐑𝐄́𝐒𝐈𝐃𝐄𝐍𝐓 𝐃𝐔 𝐅𝐎𝐑𝐔𝐌 𝐃𝐄𝐒 𝐉𝐄𝐔𝐍𝐄𝐒 𝐄𝐍𝐓𝐑𝐄𝐏𝐑𝐄𝐍𝐄𝐔𝐑𝐒 𝐄𝐓 𝐈𝐍𝐕𝐄𝐒𝐓𝐈𝐒𝐒𝐄𝐔𝐑𝐒 𝐃𝐔 𝐅𝐀𝐒𝐎",
+    excerpt: "Une délégation de FASO CRAIE , conduite par Monsieur Rabin Goro , a été reçue en audience par 𝐌𝐨𝐧𝐬𝐢𝐞𝐮𝐫 𝐥𝐞 𝐌𝐢𝐧𝐢𝐬𝐭𝐫𝐞 𝐝𝐞𝐬 𝐒𝐩𝐨𝐫𝐭𝐬,...",
+    author: 'Direction Faso Craie',
+    fullContent: `Une délégation de FASO CRAIE , conduite par Monsieur Rabin Goro , a été reçue en audience par 𝐌𝐨𝐧𝐬𝐢𝐞𝐮𝐫 𝐥𝐞 𝐌𝐢𝐧𝐢𝐬𝐭𝐫𝐞 𝐝𝐞𝐬 𝐒𝐩𝐨𝐫𝐭𝐬, 𝐝𝐞 𝐥𝐚 𝐉𝐞𝐮𝐧𝐞𝐬𝐬𝐞 𝐞𝐭 𝐝𝐞 𝐥’𝐄𝐦𝐩𝐥𝐨𝐢, dans le cadre des démarches institutionnelles relatives à la 𝟓ᵉ 𝐞́𝐝𝐢𝐭𝐢𝐨𝐧 𝐝𝐮 𝐅𝐨𝐫𝐮𝐦 𝐝𝐞𝐬 𝐉𝐞𝐮𝐧𝐞𝐬 𝐄𝐧𝐭𝐫𝐞𝐩𝐫𝐞𝐧𝐞𝐮𝐫𝐬 𝐞𝐭 𝐈𝐧𝐯𝐞𝐬𝐭𝐢𝐬𝐬𝐞𝐮𝐫𝐬 𝐝𝐮 𝐅𝐚𝐬𝐨, prévue le 𝟎𝟕 𝐟𝐞́𝐯𝐫𝐢𝐞𝐫 𝟐𝟎𝟐𝟔 𝐚̀ 𝐁𝐨𝐛𝐨-𝐃𝐢𝐨𝐮𝐥𝐚𝐬𝐬𝐨.
+Cette rencontre visait à solliciter la 𝐂𝐨𝐩𝐫𝐞́𝐬𝐢𝐝𝐞𝐧𝐜𝐞 de Monsieur le Ministre, afin de consolider l’ancrage institutionnel du Forum et de renforcer son impact en matière de 𝐩𝐫𝐨𝐦𝐨𝐭𝐢𝐨𝐧 𝐝𝐞 𝐥𝐚 𝐣𝐞𝐮𝐧𝐞𝐬𝐬𝐞, 𝐝𝐞 𝐥’𝐞𝐧𝐭𝐫𝐞𝐩𝐫𝐞𝐧𝐞𝐮𝐫𝐢𝐚𝐭 𝐞𝐭 𝐝𝐞 𝐥’𝐞𝐦𝐩𝐥𝐨𝐲𝐚𝐛𝐢𝐥𝐢𝐭𝐞́.
+Après avoir pris connaissance de la vision portée par le Forum, des axes stratégiques retenus et des innovations majeures annoncées pour cette édition, Monsieur le Ministre a donné son accord pour assurer la Coprésidence de l’événement, témoignant ainsi de son adhésion aux objectifs du Forum et de son soutien aux initiatives en faveur de l’autonomisation et de l’insertion socio-économique des jeunes.
+Cette validation vient renforcer le positionnement du Forum des Jeunes Entrepreneurs et Investisseurs du Faso  comme un cadre privilégié de dialogue, de synergies, d’opportunités et de perspectives durables pour la jeunesse burkinabè et l’écosystème entrepreneurial national.
+ Lien d’inscription : [https://forms.gle/KRGNqfgiiKckxKDM6](https://forms.gle/KRGNqfgiiKckxKDM6)`
+  },
+  {
+    id: 2,
+    category: 'Événements',
+    categoryColor: 'bg-green-600',
+    images: [
       '/actu1.jpg',
       '/essaie.jpg',
       '/actu1-1-2.jpg'
@@ -54,7 +74,7 @@ Inscription : 20 95 79 79 / 74 71 13 59 / 60 24 33 00
 FJEI-BF — Transformer, Inspirer, Élever la jeunesse burkinabè.`
   },
   {
-    id: 2,
+    id: 3,
     category: 'Partenariats',
     categoryColor: 'bg-green-600',
     images: [
@@ -74,7 +94,7 @@ Félicitations à l’AJC/AFRICA pour cette belle initiative et bravo à tous le
 Faso Craie — Au cœur de l’éducation, au service de la Nation.🇧🇫✏️`
   },
   {
-    id: 3,
+    id: 4,
     category: 'Production',
     categoryColor: 'bg-green-600',
     images: [
@@ -90,7 +110,7 @@ Faso Craie — Au cœur de l’éducation, au service de la Nation.🇧🇫✏�
     fullContent: "Dans le cadre de la 22e édition des rencontres entre le gouvernement et le secteur privé, FASO CRAIE  𝐚 𝐞𝐮 𝐥𝐞 𝐩𝐫𝐢𝐯𝐢𝐥𝐞̀𝐠𝐞 𝐝𝐞 𝐫𝐞𝐜𝐞𝐯𝐨𝐢𝐫 𝐥𝐚 𝐯𝐢𝐬𝐢𝐭𝐞 𝐞𝐭 𝐥𝐞𝐬 𝐟𝐞́𝐥𝐢𝐜𝐢𝐭𝐚𝐭𝐢𝐨𝐧𝐬 𝐝𝐮 𝐏𝐫𝐞𝐦𝐢𝐞𝐫 𝐌𝐢𝐧𝐢𝐬𝐭𝐫𝐞 𝐒𝐄𝐌 𝐉𝐞𝐚𝐧 𝐄𝐦𝐦𝐚𝐧𝐮𝐞𝐥 𝐎𝐮𝐞𝐝𝐫𝐚𝐨𝐠𝐨 qui a encouragé l'équipe FasoCraie pour sa forte contribution pour une éducation de qualité au Burkina Faso. Le Directeur Général Monsieur Rabin Goro  a traduit toute sa gratitude ainsi que celles de l'ensemble des acteurs du secteur privé du GUIRIKO à son hôte exceptionnel du jour pour son engagement constant à l'endroit du secteur privé. "
   },
   {
-    id: 4,
+    id: 5,
     category: 'Environnement',
     categoryColor: 'bg-green-600',
     images: [
@@ -104,7 +124,7 @@ Faso Craie — Au cœur de l’éducation, au service de la Nation.🇧🇫✏�
     fullContent: "Cette année, FASO CRAIE a l’honneur d’être partenaire officiel de cet événement exceptionnel qui réunira humour, culture et convivialité. En tant que partenaire 🇧🇫, FASO CRAIE soutient pleinement la promotion du talent burkinabè et l’essor de notre scène artistique. Ce spectacle s’annonce grandiose, riche en émotions et promet de faire vibrer le public avec l’énergie inimitable de More GAWA. Ne manquez pas ce moment unique ! 12 décembre • Maison de la Culture Humour, créativité et fierté nationale seront au rendez-vous."
   },
   {
-    id: 5,
+    id: 6,
     category: 'Événements',
     categoryColor: 'bg-green-600',
     images: [
@@ -126,7 +146,7 @@ FASO CRAIE se réjouit d’honorer l’excellence, le mérite et l’engagement 
 Une rencontre inspirante qui témoigne de la volonté de l’entreprise d’accompagner les champions d’aujourd’hui et de demain.`
   },
   {
-    id: 6,
+    id: 7,
     category: 'Innovation',
     categoryColor: 'bg-green-600',
     images: [

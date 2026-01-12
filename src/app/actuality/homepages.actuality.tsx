@@ -25,6 +25,22 @@ const news: Article[] = [
     category: 'Événements',
     categoryColor: 'bg-green-600',
     images: [
+      '/actu7.jpg',
+      '/actu7-1.jpg',
+      '/actu7-2.jpg'
+    ],
+    date: '09 Janvier 2026',
+    readTime: '3 min',
+    title: "𝐌𝐎𝐍𝐒𝐈𝐄𝐔𝐑 𝐋𝐄 𝐌𝐈𝐍𝐈𝐒𝐓𝐑𝐄 𝐃𝐄𝐒 𝐒𝐏𝐎𝐑𝐓𝐒, 𝐃𝐄 𝐋𝐀 𝐉𝐄𝐔𝐍𝐄𝐒𝐒𝐄 𝐄𝐓 𝐃𝐄 𝐋’𝐄𝐌𝐏𝐋𝐎𝐈, 𝐂𝐎𝐏𝐑𝐄́𝐒𝐈𝐃𝐄𝐍𝐓 𝐃𝐔 𝐅𝐎𝐑𝐔𝐌 𝐃𝐄𝐒 𝐉𝐄𝐔𝐍𝐄𝐒 𝐄𝐍𝐓𝐑𝐄𝐏𝐑𝐄𝐍𝐄𝐔𝐑𝐒 𝐄𝐓 𝐈𝐍𝐕𝐄𝐒𝐓𝐈𝐒𝐒𝐄𝐔𝐑𝐒 𝐃𝐔 𝐅𝐀𝐒𝐎",
+    excerpt: "Monsieur Rabin Goro , a été reçue en audience par 𝐌𝐨𝐧𝐬𝐢𝐞𝐮𝐫 𝐥𝐞 𝐌𝐢𝐧𝐢𝐬𝐭𝐫𝐞 𝐝𝐞𝐬 𝐒𝐩𝐨𝐫𝐭𝐬, ...",
+    author: 'Direction Faso Craie',
+    fullContent: ''
+  },
+  {
+    id: 2,
+    category: 'Événements',
+    categoryColor: 'bg-green-600',
+    images: [
       '/actu1.jpg',
       '/essaie.jpg',
       '/actu1-1.jpg'
@@ -37,7 +53,7 @@ const news: Article[] = [
     fullContent: ''
   },
   {
-    id: 2,
+    id: 3,
     category: 'Partenariats',
     categoryColor: 'bg-green-600',
     images: [
@@ -53,7 +69,7 @@ const news: Article[] = [
     fullContent: ''
   },
   {
-    id: 3,
+    id: 4,
     category: 'Production',
     categoryColor: 'bg-green-600',
     images: [
@@ -68,7 +84,7 @@ const news: Article[] = [
     fullContent: ''
   },
   {
-    id: 4,
+    id: 5,
     category: 'Environnement',
     categoryColor: 'bg-green-600',
     images: [
@@ -83,7 +99,7 @@ const news: Article[] = [
     fullContent: ''
   },
   {
-    id: 5,
+    id: 6,
     category: 'Événements',
     categoryColor: 'bg-green-600',
     images: [
@@ -97,7 +113,7 @@ const news: Article[] = [
     fullContent: ''
   },
   {
-    id: 6,
+    id: 7,
     category: 'Innovation',
     categoryColor: 'bg-green-600',
     images: [

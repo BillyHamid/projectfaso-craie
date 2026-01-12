@@ -137,8 +137,9 @@ export default function NavbarDemo() {
 export function ImagesSliderDemo() {
   const images = [
     "/banier.jpg",
+    "/bannerconf.jpg",
     "/banner5.jpg",
-    "/banner4.jpg",
+    
   ];
   return (
     <ImagesSlider className="h-[20rem] md:h-[35rem] lg:h-[50rem]" images={images}>
