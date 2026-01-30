@@ -33,8 +33,7 @@ const contactInfo = [
     icon: Mail,
     title: "Email",
     details: [
-      "contact@fasocraie.bf",
-      "info@fasocraie.bf"
+      "contact@faso-craie.com"
     ],
     gradient: "from-green-500 to-green-600",
     bgGradient: "from-green-50 to-green-100"
