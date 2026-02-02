@@ -139,27 +139,32 @@ export function ImagesSliderDemo() {
     "/banier.jpg",
     "/bannerconf.jpg",
     "/banner5.jpg",
-    
+
   ];
   return (
-    <ImagesSlider className="h-[20rem] md:h-[35rem] lg:h-[50rem]" images={images}>
-      <motion.div
-        initial={{
-          opacity: 0,
-          y: -80,
-        }}
-        animate={{
-          opacity: 1,
-          y: 0,
-        }}
-        transition={{
-          duration: 0.6,
-        }}
+    <div className="w-full">
+      <ImagesSlider 
+        className="w-full aspect-[16/9] sm:aspect-[16/8] md:aspect-[16/7] lg:aspect-[16/6] xl:aspect-[21/9] min-h-[250px] max-h-[85vh]" 
+        images={images}
       >
-        
-       
-      </motion.div>
-    </ImagesSlider>
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: -80,
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            duration: 0.6,
+          }}
+        >
+
+
+        </motion.div>
+      </ImagesSlider>
+    </div>
   );
 }
 

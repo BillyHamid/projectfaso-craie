@@ -2,6 +2,7 @@
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence, Variants } from "motion/react";
 import React, { useEffect, useState } from "react";
+import NextImage from "next/image";
 
 export const ImagesSlider = ({
   images,
@@ -140,15 +141,27 @@ export const ImagesSlider = ({
 
       {areImagesLoaded && (
         <AnimatePresence>
-          <motion.img
+          <motion.div
             key={currentIndex}
-            src={loadedImages[currentIndex]}
             initial="initial"
             animate="visible"
             exit={direction === "up" ? "upExit" : "downExit"}
             variants={slideVariants}
-            className="image h-full w-full absolute inset-0 object-cover object-center"
-          />
+            className="h-full w-full absolute inset-0"
+          >
+            <NextImage
+              src={loadedImages[currentIndex]}
+              alt={`Slide ${currentIndex + 1}`}
+              fill
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 100vw"
+              priority
+              className="object-cover"
+              style={{
+                objectFit: "cover",
+                objectPosition: "center 30%",
+              }}
+            />
+          </motion.div>
         </AnimatePresence>
       )}
     </div>
